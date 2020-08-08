@@ -1,0 +1,3 @@
+pycman
+osprofile==0.2.1
+django
