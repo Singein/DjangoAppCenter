@@ -1,5 +1,5 @@
 """
-ASGI config for AppCenter project.
+ASGI config for DjangoAppCenter project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AppCenter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
 
 application = get_asgi_application()

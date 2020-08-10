@@ -1,1 +1,1 @@
-# AppCenter
+# DjangoAppCenter

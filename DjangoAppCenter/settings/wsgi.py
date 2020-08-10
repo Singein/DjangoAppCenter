@@ -1,5 +1,5 @@
 """
-WSGI config for AppCenter project.
+WSGI config for DjangoAppCenter project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AppCenter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
 
 application = get_wsgi_application()

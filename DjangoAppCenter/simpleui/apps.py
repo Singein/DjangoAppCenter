@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class SimpleApp(AppConfig):
-    name = 'AppCenter.simpleui'
+    name = 'DjangoAppCenter.simpleui'
 
     def ready(self):
         # 如果是django3+ 就使用中间件，删除header中的X-Frame-Options

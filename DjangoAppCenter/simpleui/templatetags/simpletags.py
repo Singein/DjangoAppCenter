@@ -10,7 +10,7 @@ import sys
 import time
 
 import django
-from AppCenter import simpleui
+from DjangoAppCenter import simpleui
 from django import template
 
 from django.core.serializers.json import DjangoJSONEncoder

@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.getcwd()))
 def debug():
     """Django's command-line utility for administrative tasks."""
     os.environ.setdefault('APP_CENTER_ENVIRON', 'DEBUG')
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AppCenter.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -27,7 +27,7 @@ def prod():
     """Django's command-line utility for administrative tasks."""
 
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AppCenter.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
