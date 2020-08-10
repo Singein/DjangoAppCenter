@@ -47,10 +47,13 @@ custom_settings = profile.read_profile()['custom_settings']
 SECRET_KEY = '8v9)1@nj4g+*i56y4c5bf8-ug#!$mj*(#p^o!yw%gr9$5+2+g^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+APP_CENTER_ENVIRON = os.environ.get("APP_CENTER_ENVIRON", "DEBUG")
+DEBUG = APP_CENTER_ENVIRON == "DEBUG"
 
 ALLOWED_HOSTS = ["*"]
-
+# 跨域请求设置的基本参数
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -68,6 +71,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -93,6 +97,7 @@ TEMPLATES = [
     },
 ]
 
+DATABASE_ROUTERS = ['AppCenter.settings.dbrouters.Router']
 WSGI_APPLICATION = 'AppCenter.settings.wsgi.application'
 
 
@@ -141,12 +146,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# 自定义配置进行覆盖
-if custom_settings and os.path.isfile(custom_settings):
-    import sys
+# # 自定义配置进行覆盖
+# if custom_settings and os.path.isfile(custom_settings):
+#     import sys
 
-    sys.path.append(os.path.dirname(os.path.abspath(custom_settings)))
-    model_name = os.path.basename(custom_settings).replace('.py', '')
-    # exec('from %s import *' % model_name, {'STATIC_URL': STATIC_URL})
+#     sys.path.append(os.path.dirname(os.path.abspath(custom_settings)))
+#     model_name = os.path.basename(custom_settings).replace('.py', '')
+#     # exec('from %s import *' % model_name, {'STATIC_URL': STATIC_URL})
 
-    print(STATIC_URL)
+#     print(STATIC_URL)

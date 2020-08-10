@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from django.db.models.fields.related import ForeignKey
+from django.utils.translation import gettext_lazy as _
 import base64
 import json
 import os
@@ -8,7 +10,7 @@ import sys
 import time
 
 import django
-import simpleui
+from AppCenter import simpleui
 from django import template
 
 from django.core.serializers.json import DjangoJSONEncoder
@@ -22,7 +24,6 @@ from django.utils.safestring import mark_safe
 register = template.Library()
 
 PY_VER = sys.version[0]  # 2 or 3
-from django.utils.translation import gettext_lazy as _
 
 if PY_VER != '2':
     from importlib import reload
@@ -181,7 +182,8 @@ def menus(context, _get_config=None):
         config = {}
 
     if config.get('dynamic', False) is True:
-        config = _import_reload(_get_config('DJANGO_SETTINGS_MODULE')).SIMPLEUI_CONFIG
+        config = _import_reload(_get_config(
+            'DJANGO_SETTINGS_MODULE')).SIMPLEUI_CONFIG
 
     app_list = context.get('app_list')
     for app in app_list:
@@ -292,7 +294,8 @@ def get_config_icon(name):
 @register.simple_tag(takes_context=True)
 def load_message(context):
     messages = context.get('messages')
-    array = [dict(msg=msg.message, tag=msg.tags) for msg in messages] if messages else []
+    array = [dict(msg=msg.message, tag=msg.tags)
+             for msg in messages] if messages else []
 
     return '<script id="out_message" type="text/javascript">var messages={}</script>'.format(
         json.dumps(array, cls=LazyEncoder))
@@ -353,7 +356,8 @@ def load_analysis(context):
 
         url = '//simpleui.88cto.com/analysis'
         b64 = b64.decode('utf-8')
-        html = '<script async type="text/javascript" src="{}/{}"></script>'.format(url, b64);
+        html = '<script async type="text/javascript" src="{}/{}"></script>'.format(
+            url, b64)
         context.request.session[key] = True
 
         return mark_safe(html)
@@ -383,9 +387,6 @@ def custom_button(context):
             data[name] = values
 
     return json.dumps(data, cls=LazyEncoder)
-
-
-from django.db.models.fields.related import ForeignKey
 
 
 def get_model_fields(model, base=None):
@@ -478,6 +479,7 @@ def get_boolean_choices():
         ('True', _('Yes')),
         ('False', _('No'))
     )
+
 
 @register.simple_tag(takes_context=True)
 def get_previous_url(context):

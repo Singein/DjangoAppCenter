@@ -14,8 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-import importlib
+from django.urls import path, include
 from AppCenter.settings import profile
 
 
@@ -27,6 +26,6 @@ routers = profile.read_profile()['routers']
 # {path: 'app/', model:'app', handler: 'app.api' }
 # 动态导入包
 for router in routers:
-    model = importlib.import_module(router['model'])
+    # model = importlib.import_module(router['urls'])
     urlpatterns.append(
-        path(router['path'], eval('model.%s' % router['handler'])))
+        path(router['path'], include(router['urls'])))
