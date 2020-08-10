@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from django.contrib import admin
 import os
-from DjangoAppCenter.settings.admin import *
 from OSProfile import OSProfile
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
