@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-from django.contrib import admin
 import os
+
+from django.contrib import admin
 from OSProfile import OSProfile
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,16 +38,19 @@ DEFAULT_OPTIONS = {
 profile = OSProfile(appname="DjangoAppCenter",
                     profile="profile.json", options=DEFAULT_OPTIONS)
 
-apps = profile.read_profile()['apps']
-middlewares = profile.read_profile()['middlewares']
-databases = profile.read_profile()['databases']
-custom_settings = profile.read_profile()['custom_settings']
+custom_settings = options.get('custom_settings', None)  # 暂时没用到
 
-site_title = profile.read_profile()['admin_site_title']
-site_header = profile.read_profile()['admin_site_header']
+options = profile.read_profile()
+apps = options.get('apps', [])
+middlewares = options.get('middlewares', [])
+databases = options.get('databases', None)
 
-admin.AdminSite.site_title = "Medical-Y 数据标注中心"
-admin.AdminSite.site_header = "Medical-Y"
+
+site_title = options.get('admin_site_title', 'DjangoAppCenter')
+site_header = options.get('admin_site_header', 'DjangoAppCenter')
+
+admin.AdminSite.site_title = site_title
+admin.AdminSite.site_header = site_header
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -71,8 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # 'DjangoAppCenter.medicaly'
+    'django.contrib.staticfiles'
 ] + apps
 
 MIDDLEWARE = [
