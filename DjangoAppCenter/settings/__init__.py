@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_OPTIONS = {
     'admin_site_title': 'DjangoAppCenter',
     'admin_site_header': 'DjangoAppCenter',
+    'redirect': 'admin/',
     'apps': [],
     'middlewares': [],
     "routers": [],

@@ -14,15 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.shortcuts import redirect
+from django.urls import include, path
 from DjangoAppCenter.settings import profile
 
 
+def index(request):
+    redirect_to = profile.read_profile().get('redirect', 'admin/')
+    return redirect(redirect_to)
+
+
 urlpatterns = [
+    path('', index),
     path('admin/', admin.site.urls),
 ]
 
-routers = profile.read_profile()['routers']
+routers = profile.read_profile().get('routers', [])
+
 # {path: 'app/', model:'app', handler: 'app.api' }
 # 动态导入包
 for router in routers:
