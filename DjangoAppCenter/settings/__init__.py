@@ -37,10 +37,9 @@ DEFAULT_OPTIONS = {
 
 profile = OSProfile(appname="DjangoAppCenter",
                     profile="profile.json", options=DEFAULT_OPTIONS)
+options = profile.read_profile()
 
 custom_settings = options.get('custom_settings', None)  # 暂时没用到
-
-options = profile.read_profile()
 apps = options.get('apps', [])
 middlewares = options.get('middlewares', [])
 databases = options.get('databases', None)
