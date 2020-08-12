@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.1.1
+------
+
+* [release] 0.1.1
+* feat(settings.dbrouter): 添加了restful设置的支持以及对数据库路由逻辑进行了改写
+* docs(ChangeLog): update changes about [0.1.0]
+
 v0.1.0
 ------
 
