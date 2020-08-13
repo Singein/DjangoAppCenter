@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.1.2
+------
+
+* [release] 0.1.2
+* fix(dbrouters): 新增了allow\_relation 和 allow\_migrate
+* docs(ChangeLog): update changes about [0.1.1]
+
 v0.1.1
 ------
 
