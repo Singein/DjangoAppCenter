@@ -26,6 +26,7 @@ DEFAULT_OPTIONS = {
     'apps': [],
     'middlewares': [],
     "routers": [],
+    'database_routers':[],
     'databases': {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

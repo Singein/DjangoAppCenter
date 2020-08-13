@@ -19,3 +19,9 @@ class Router:
         if app_label in options:
             return app_label
         return 'default'
+
+    def allow_relation(self, obj1, obj2, **hints):
+        return True
+
+    def allow_migrate(self, db, applabel, **hints):
+        return True
