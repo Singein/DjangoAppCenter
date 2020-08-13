@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.1.3
+------
+
+* [release] 0.1.3
+* fix(dbrouters): 修复了db\_for\_write 函数
+* docs(ChangeLog): update changes about [0.1.2]
+
 v0.1.2
 ------
 
