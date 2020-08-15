@@ -1,6 +1,14 @@
 CHANGES
 =======
 
+v0.2.0
+------
+
+* [release] 0.2.0
+* feat(settings): 实现了端口的配置
+* feat(cli): 新增了deploy方法，实现了uwsgi的部署
+* docs(ChangeLog): update changes about [0.1.4]
+
 v0.1.4
 ------
 
