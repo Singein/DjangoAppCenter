@@ -41,17 +41,19 @@ def prod():
 
 
 def deploy():
-    # CMD ["uwsgi", "--socket=127.0.0.1:6666", "--file=jzdw/wsgi.py", "--static-map=/static=jzdw/static", "--logto", "uwsgi.log"]
 
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
 
     static_root = OPTIONS.get('static_root')
     wsgi_path = os.path.join(os.path.dirname(
         os.path.abspath(__file__)), "settings", 'wsgi.py')
+
+    allowed_host = OPTIONS.get('allowed_host')
+    port = OPTIONS.get('port')
     os.system(
         "python -m DjangoAppCenter prod collectstatic --noinput")
-    os.system("uwsgi --http=0.0.0.0:6666 --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" %
-              (wsgi_path, static_root))
+    os.system("uwsgi --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" %
+              (allowed_host, str(port), wsgi_path, static_root))
 
 
 def entry():
