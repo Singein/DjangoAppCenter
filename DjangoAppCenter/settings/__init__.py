@@ -13,58 +13,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 from django.contrib import admin
-from OSProfile import OSProfile
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from DjangoAppCenter.settings.options import BASE_DIR, DEFAULT_OPTIONS, OPTIONS
 
 
-DEFAULT_OPTIONS = {
-    'admin_site_title': 'DjangoAppCenter',
-    'admin_site_header': 'DjangoAppCenter',
-    'allowed_host': '0.0.0.0',
-    'port': 6666,
-    'static_root': '~/.statics',  # 静态资源地址
-    'redirect': 'admin/',  # 重定向
-    'apps': [],
-    'middlewares': [],
-    "routers": [],
-    'database_routers': [],
-    'databases': {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    },
-    'rest_framework': {
-        'DEFAULT_PERMISSION_CLASSES': [
-            'rest_framework.permissions.IsAuthenticated',
-        ],
-        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-        'PAGE_SIZE': 100,
-        'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-    },
-    'admin_ui': {
-
-    }
-}
+# custom_settings = OPTIONS.get('custom_settings', None)  # 暂时没用到
 
 
-profile = OSProfile(appname="DjangoAppCenter",
-                    profile="profile.json", options=DEFAULT_OPTIONS)
-OPTIONS = profile.read_profile()
-
-custom_settings = OPTIONS.get('custom_settings', None)  # 暂时没用到
-apps = OPTIONS.get('apps', [])
-middlewares = OPTIONS.get('middlewares', [])
-databases = OPTIONS.get('databases', None)
-
-
-site_title = OPTIONS.get('admin_site_title', 'DjangoAppCenter')
-site_header = OPTIONS.get('admin_site_header', 'DjangoAppCenter')
-
-admin.AdminSite.site_title = site_title
-admin.AdminSite.site_header = site_header
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -75,7 +29,6 @@ SECRET_KEY = '8v9)1@nj4g+*i56y4c5bf8-ug#!$mj*(#p^o!yw%gr9$5+2+g^'
 APP_CENTER_ENVIRON = os.environ.get("APP_CENTER_ENVIRON", "DEBUG")
 DEBUG = APP_CENTER_ENVIRON == "DEBUG"
 
-REST_FRAMEWORK = OPTIONS.get('rest_framework', {})
 
 ALLOWED_HOSTS = ["*"]
 # 跨域请求设置的基本参数
@@ -94,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters'
-] + apps
+] + OPTIONS.get('apps', [])
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -105,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-] + middlewares
+] + OPTIONS.get('middlewares', [])
 
 ROOT_URLCONF = 'DjangoAppCenter.settings.urls'
 
@@ -132,7 +85,7 @@ WSGI_APPLICATION = 'DjangoAppCenter.settings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = databases
+DATABASES = OPTIONS.get('databases', None)
 
 
 # Password validation
@@ -173,3 +126,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = OPTIONS.get('static_root')
+
+REST_FRAMEWORK = OPTIONS.get('rest_framework', {})
+
+
+admin.AdminSite.site_title = OPTIONS.get('admin_site_title', 'DjangoAppCenter')
+admin.AdminSite.site_header = OPTIONS.get(
+    'admin_site_header', 'DjangoAppCenter')

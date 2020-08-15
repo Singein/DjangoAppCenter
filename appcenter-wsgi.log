@@ -113,3 +113,194 @@ spawned uWSGI worker 1 (and the only) (pid: 14210, cores: 1)
 [pid: 14210|app: -1|req: -1/6] 127.0.0.1 () {34 vars in 565 bytes} [Sat Aug 15 08:16:46 2020] GET /static/admin/simpleui-x/img/bg.svg => generated 9547 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 0)
 [pid: 14210|app: -1|req: -1/7] 127.0.0.1 () {38 vars in 728 bytes} [Sat Aug 15 08:16:46 2020] GET /static/admin/simpleui-x/img/bg.svg => generated 9547 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 0)
 [pid: 14210|app: 0|req: 2/8] 127.0.0.1 () {36 vars in 619 bytes} [Sat Aug 15 08:16:46 2020] GET /favicon.ico => generated 179 bytes in 1 msecs (HTTP/1.1 404) 4 headers in 119 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sat Aug 15 16:33:08 2020] ***
+compiled with version: 8.3.0 on 15 August 2020 02:24:42
+os: Linux-5.3.0-3-amd64 #1 SMP deepin 5.3.15-6apricot (2020-04-13)
+nodename: jizhen-pc
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 6
+current working directory: /home/singein/Projects/me/appcenter
+detected binary path: /home/singein/Environment/venv/bin/uwsgi
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 61469
+your memory page size is 4096 bytes
+detected max file descriptor number: 8192
+building mime-types dictionary from file /etc/mime.types...565 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:6666 fd 6
+spawned uWSGI http 1 (pid: 15669)
+uwsgi socket 0 bound to TCP address 127.0.0.1:39217 (port auto-assigned) fd 3
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1a8a4e0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1a8a4e0 pid: 15668 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 15668, cores: 1)
+[pid: 15668|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 741 bytes} [Sat Aug 15 08:33:19 2020] GET /admin/login/?next=/admin/ => generated 3594 bytes in 284 msecs (HTTP/1.1 200) 7 headers in 416 bytes (1 switches on core 0)
+[pid: 15668|app: -1|req: -1/2] 127.0.0.1 () {40 vars in 785 bytes} [Sat Aug 15 08:33:19 2020] GET /static/admin/simpleui-x/js/login.js?_=3.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15668|app: -1|req: -1/3] 127.0.0.1 () {40 vars in 796 bytes} [Sat Aug 15 08:33:19 2020] GET /static/admin/simpleui-x/particles/particles.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15668|app: -1|req: -1/4] 127.0.0.1 () {40 vars in 784 bytes} [Sat Aug 15 08:33:19 2020] GET /static/admin/simpleui-x/particles/app.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15668|app: -1|req: -1/5] 127.0.0.1 () {40 vars in 804 bytes} [Sat Aug 15 08:33:19 2020] GET /static/admin/simpleui-x/css/login.css?_=2.1 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15668|app: -1|req: -1/6] 127.0.0.1 () {40 vars in 783 bytes} [Sat Aug 15 08:33:19 2020] GET /static/admin/simpleui-x/img/bg.svg => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15668|app: 0|req: 2/7] 127.0.0.1 () {38 vars in 698 bytes} [Sat Aug 15 08:33:28 2020] GET /api => generated 179 bytes in 1 msecs (HTTP/1.1 404) 4 headers in 119 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sat Aug 15 16:34:26 2020] ***
+compiled with version: 8.3.0 on 15 August 2020 02:24:42
+os: Linux-5.3.0-3-amd64 #1 SMP deepin 5.3.15-6apricot (2020-04-13)
+nodename: jizhen-pc
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 6
+current working directory: /home/singein/Projects/me/appcenter
+detected binary path: /home/singein/Environment/venv/bin/uwsgi
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 61469
+your memory page size is 4096 bytes
+detected max file descriptor number: 8192
+building mime-types dictionary from file /etc/mime.types...565 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:6666 fd 6
+spawned uWSGI http 1 (pid: 15820)
+uwsgi socket 0 bound to TCP address 127.0.0.1:38273 (port auto-assigned) fd 3
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x21184e0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x21184e0 pid: 15819 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 15819, cores: 1)
+[pid: 15819|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 735 bytes} [Sat Aug 15 08:34:27 2020] GET /admin/ => generated 0 bytes in 502 msecs (HTTP/1.1 302) 7 headers in 286 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 2/2] 127.0.0.1 () {40 vars in 772 bytes} [Sat Aug 15 08:34:27 2020] GET /admin/login/?next=/admin/ => generated 3594 bytes in 24 msecs (HTTP/1.1 200) 7 headers in 416 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/3] 127.0.0.1 () {42 vars in 816 bytes} [Sat Aug 15 08:34:27 2020] GET /static/admin/simpleui-x/js/login.js?_=3.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/4] 127.0.0.1 () {42 vars in 827 bytes} [Sat Aug 15 08:34:27 2020] GET /static/admin/simpleui-x/particles/particles.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/5] 127.0.0.1 () {42 vars in 815 bytes} [Sat Aug 15 08:34:27 2020] GET /static/admin/simpleui-x/particles/app.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/6] 127.0.0.1 () {42 vars in 814 bytes} [Sat Aug 15 08:34:27 2020] GET /static/admin/simpleui-x/img/bg.svg => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 3/7] 127.0.0.1 () {46 vars in 911 bytes} [Sat Aug 15 08:34:37 2020] POST /admin/login/?next=/admin/ => generated 0 bytes in 132 msecs (HTTP/1.1 302) 11 headers in 672 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 4/8] 127.0.0.1 () {40 vars in 811 bytes} [Sat Aug 15 08:34:37 2020] GET /admin/ => generated 17971 bytes in 45 msecs (HTTP/1.1 200) 6 headers in 249 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/9] 127.0.0.1 () {38 vars in 774 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/css/index.css?_=3.2 => generated 7134 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/10] 127.0.0.1 () {38 vars in 786 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/waves/waves.min.css?_=2.1 => generated 3861 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/11] 127.0.0.1 () {38 vars in 773 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/automatic/dicts.js?_=4.0.3 => generated 5606 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/12] 127.0.0.1 () {38 vars in 777 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/automatic/segment.js?_=4.0.3 => generated 1448 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/13] 127.0.0.1 () {38 vars in 767 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/locale/en-us.js?_=4.0.3 => generated 811 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/14] 127.0.0.1 () {38 vars in 771 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/locale/zh-hans.js?_=4.0.3 => generated 1254 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/15] 127.0.0.1 () {38 vars in 761 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/js/cookie.js?_=4.0.3 => generated 524 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/16] 127.0.0.1 () {38 vars in 765 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/theme/theme.js?_=4.0.3 => generated 4274 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/17] 127.0.0.1 () {38 vars in 773 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/waves/waves.min.js?_=4.0.3 => generated 6329 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/18] 127.0.0.1 () {38 vars in 759 bytes} [Sat Aug 15 08:34:37 2020] GET /static/admin/simpleui-x/js/index.js?_=4.0.3 => generated 20475 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/19] 127.0.0.1 () {38 vars in 773 bytes} [Sat Aug 15 08:34:46 2020] GET /static/admin/simpleui-x/theme/aircraft.css => generated 5189 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 5/20] 127.0.0.1 () {40 vars in 906 bytes} [Sat Aug 15 08:34:51 2020] GET /admin/medicaly/organsystem/ => generated 27276 bytes in 78 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/21] 127.0.0.1 () {38 vars in 771 bytes} [Sat Aug 15 08:34:51 2020] GET /static/admin/css/base.css?_=2.7 => generated 16206 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 112 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/22] 127.0.0.1 () {38 vars in 793 bytes} [Sat Aug 15 08:34:51 2020] GET /static/admin/simpleui-x/css/base.css?_=2.7 => generated 3205 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/23] 127.0.0.1 () {38 vars in 794 bytes} [Sat Aug 15 08:34:51 2020] GET /static/admin/simpleui-x/theme/simpleui.css => generated 4421 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/24] 127.0.0.1 () {38 vars in 786 bytes} [Sat Aug 15 08:34:51 2020] GET /static/admin/simpleui-x/js/language.js?_=2.1.2 => generated 189 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/25] 127.0.0.1 () {38 vars in 786 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/simpleui-x/locale/en-us.js?_=2.1.2 => generated 811 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/26] 127.0.0.1 () {38 vars in 776 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/simpleui-x/locale/zh-hans.js => generated 1254 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/27] 127.0.0.1 () {38 vars in 766 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/simpleui-x/js/cookie.js => generated 524 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/28] 127.0.0.1 () {38 vars in 794 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/css/changelists.css?_=20180905 => generated 6305 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 6/29] 127.0.0.1 () {38 vars in 792 bytes} [Sat Aug 15 08:34:52 2020] GET /admin/jsi18n/ => generated 7722 bytes in 32 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/30] 127.0.0.1 () {38 vars in 780 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/vendor/jquery/jquery.min.js => generated 85659 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/31] 127.0.0.1 () {38 vars in 754 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/jquery.init.js => generated 363 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/32] 127.0.0.1 () {38 vars in 740 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/core.js => generated 7127 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/33] 127.0.0.1 () {38 vars in 784 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 6907 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/34] 127.0.0.1 () {38 vars in 754 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/actions.min.js => generated 3161 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/35] 127.0.0.1 () {38 vars in 763 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/prepopulate.min.js => generated 372 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/36] 127.0.0.1 () {38 vars in 793 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/css/responsive.css?_=20180905 => generated 17867 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 112 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/37] 127.0.0.1 () {38 vars in 785 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/vendor/xregexp/xregexp.min.js => generated 62474 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/38] 127.0.0.1 () {38 vars in 779 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/simpleui-x/automatic/dicts.js => generated 5606 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/39] 127.0.0.1 () {38 vars in 783 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/simpleui-x/automatic/segment.js => generated 1448 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/40] 127.0.0.1 () {38 vars in 745 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/js/urlify.js => generated 8733 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/41] 127.0.0.1 () {38 vars in 766 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/css/fonts.css => generated 423 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 110 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/42] 127.0.0.1 () {38 vars in 849 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/fonts/Roboto-Regular-webfont.woff => generated 80304 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/43] 127.0.0.1 () {38 vars in 843 bytes} [Sat Aug 15 08:34:52 2020] GET /static/admin/fonts/Roboto-Bold-webfont.woff => generated 82564 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 7/44] 127.0.0.1 () {40 vars in 898 bytes} [Sat Aug 15 08:34:52 2020] GET /admin/medicaly/disease/ => generated 44213 bytes in 89 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/45] 127.0.0.1 () {38 vars in 758 bytes} [Sat Aug 15 08:34:53 2020] GET /static/admin/css/forms.css => generated 8173 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 8/46] 127.0.0.1 () {38 vars in 789 bytes} [Sat Aug 15 08:34:53 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/47] 127.0.0.1 () {38 vars in 765 bytes} [Sat Aug 15 08:34:53 2020] GET /static/admin/css/widgets.css => generated 10333 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 112 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/48] 127.0.0.1 () {38 vars in 760 bytes} [Sat Aug 15 08:34:53 2020] GET /static/admin/img/icon-yes.svg => generated 448 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/49] 127.0.0.1 () {38 vars in 768 bytes} [Sat Aug 15 08:34:53 2020] GET /static/admin/img/icon-unknown.svg => generated 667 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/50] 127.0.0.1 () {38 vars in 773 bytes} [Sat Aug 15 08:34:55 2020] GET /static/admin/simpleui-x/theme/highdmin.css => generated 4532 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 9/51] 127.0.0.1 () {40 vars in 1003 bytes} [Sat Aug 15 08:35:02 2020] GET /admin/medicaly/disease/c92740ed-8d9e-4967-a8fa-ca203e02e472/change/ => generated 31612 bytes in 72 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 10/52] 127.0.0.1 () {38 vars in 833 bytes} [Sat Aug 15 08:35:02 2020] GET /admin/jsi18n/ => generated 7722 bytes in 21 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/53] 127.0.0.1 () {38 vars in 844 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/css/vendor/select2/select2.min.css => generated 15196 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 112 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/54] 127.0.0.1 () {38 vars in 816 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/css/autocomplete.css => generated 8440 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/55] 127.0.0.1 () {38 vars in 835 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/js/vendor/select2/select2.full.min.js => generated 75005 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/56] 127.0.0.1 () {38 vars in 823 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/js/vendor/select2/i18n/zh-CN.js => generated 769 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/57] 127.0.0.1 () {38 vars in 795 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/js/inlines.min.js => generated 5824 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/58] 127.0.0.1 () {38 vars in 795 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/js/change_form.js => generated 715 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/59] 127.0.0.1 () {38 vars in 805 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/js/prepopulate_init.js => generated 497 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 124 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/60] 127.0.0.1 () {38 vars in 797 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/js/autocomplete.js => generated 1132 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/61] 127.0.0.1 () {38 vars in 818 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/img/icon-deletelink.svg => generated 404 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/62] 127.0.0.1 () {38 vars in 812 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/img/icon-addlink.svg => generated 343 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/63] 127.0.0.1 () {38 vars in 818 bytes} [Sat Aug 15 08:35:02 2020] GET /static/admin/img/icon-changelink.svg => generated 392 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 11/64] 127.0.0.1 () {40 vars in 898 bytes} [Sat Aug 15 08:35:05 2020] GET /admin/medicaly/disease/ => generated 44213 bytes in 84 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/65] 127.0.0.1 () {38 vars in 765 bytes} [Sat Aug 15 08:35:15 2020] GET /static/admin/simpleui-x/theme/gray.css => generated 4444 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 12/66] 127.0.0.1 () {34 vars in 509 bytes} [Sat Aug 15 08:35:27 2020] GET /admin/ => generated 0 bytes in 0 msecs (HTTP/1.1 302) 7 headers in 286 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 13/67] 127.0.0.1 () {34 vars in 551 bytes} [Sat Aug 15 08:35:27 2020] GET /admin/medicaly/organsystem/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 7 headers in 307 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 14/68] 127.0.0.1 () {34 vars in 543 bytes} [Sat Aug 15 08:35:27 2020] GET /admin/medicaly/disease/ => generated 0 bytes in 0 msecs (HTTP/1.1 302) 7 headers in 303 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 15/69] 127.0.0.1 () {34 vars in 546 bytes} [Sat Aug 15 08:35:27 2020] GET /admin/login/?next=/admin/ => generated 3594 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 416 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 16/70] 127.0.0.1 () {34 vars in 588 bytes} [Sat Aug 15 08:35:27 2020] GET /admin/login/?next=/admin/medicaly/organsystem/ => generated 3636 bytes in 1 msecs (HTTP/1.1 200) 7 headers in 416 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 17/71] 127.0.0.1 () {34 vars in 580 bytes} [Sat Aug 15 08:35:27 2020] GET /admin/login/?next=/admin/medicaly/disease/ => generated 3628 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 416 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/72] 127.0.0.1 () {36 vars in 712 bytes} [Sat Aug 15 08:35:29 2020] GET /static/admin/simpleui-x/css/index.css.map => generated 3279 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 87 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 18/73] 127.0.0.1 () {40 vars in 1003 bytes} [Sat Aug 15 08:35:44 2020] GET /admin/medicaly/disease/ea81245a-7d07-4b78-b7d4-c19ded0f39ee/change/ => generated 31622 bytes in 53 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 19/74] 127.0.0.1 () {38 vars in 833 bytes} [Sat Aug 15 08:35:44 2020] GET /admin/jsi18n/ => generated 7722 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 20/75] 127.0.0.1 () {40 vars in 851 bytes} [Sat Aug 15 08:35:50 2020] GET /admin/ => generated 17971 bytes in 35 msecs (HTTP/1.1 200) 6 headers in 249 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/76] 127.0.0.1 () {42 vars in 857 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/automatic/dicts.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/77] 127.0.0.1 () {42 vars in 852 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/locale/en-us.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/78] 127.0.0.1 () {42 vars in 856 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/locale/zh-hans.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/79] 127.0.0.1 () {42 vars in 850 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/theme/theme.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/80] 127.0.0.1 () {40 vars in 807 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/automatic/segment.js?_=4.0.3 => generated 1448 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/81] 127.0.0.1 () {42 vars in 846 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/js/cookie.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/82] 127.0.0.1 () {42 vars in 858 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/waves/waves.min.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/83] 127.0.0.1 () {42 vars in 844 bytes} [Sat Aug 15 08:35:50 2020] GET /static/admin/simpleui-x/js/index.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 21/84] 127.0.0.1 () {40 vars in 897 bytes} [Sat Aug 15 08:35:50 2020] GET /admin/medicaly/disease/ => generated 44213 bytes in 85 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 22/85] 127.0.0.1 () {38 vars in 789 bytes} [Sat Aug 15 08:35:50 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 23/86] 127.0.0.1 () {40 vars in 906 bytes} [Sat Aug 15 08:35:51 2020] GET /admin/medicaly/organsystem/ => generated 27276 bytes in 43 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 24/87] 127.0.0.1 () {38 vars in 793 bytes} [Sat Aug 15 08:35:51 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 25/88] 127.0.0.1 () {40 vars in 916 bytes} [Sat Aug 15 08:35:53 2020] GET /admin/medicaly/symptomtodisease/ => generated 69396 bytes in 176 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 26/89] 127.0.0.1 () {38 vars in 798 bytes} [Sat Aug 15 08:35:53 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 27/90] 127.0.0.1 () {40 vars in 898 bytes} [Sat Aug 15 08:35:54 2020] GET /admin/medicaly/symptom/ => generated 97247 bytes in 278 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 28/91] 127.0.0.1 () {40 vars in 896 bytes} [Sat Aug 15 08:35:54 2020] GET /admin/medicaly/answer/ => generated 23520 bytes in 54 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 29/92] 127.0.0.1 () {38 vars in 789 bytes} [Sat Aug 15 08:35:54 2020] GET /admin/jsi18n/ => generated 7722 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 30/93] 127.0.0.1 () {38 vars in 788 bytes} [Sat Aug 15 08:35:54 2020] GET /admin/jsi18n/ => generated 7722 bytes in 31 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 31/94] 127.0.0.1 () {40 vars in 900 bytes} [Sat Aug 15 08:35:55 2020] GET /admin/medicaly/bodypart/ => generated 81889 bytes in 202 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 32/95] 127.0.0.1 () {40 vars in 900 bytes} [Sat Aug 15 08:35:55 2020] GET /admin/medicaly/question/ => generated 23523 bytes in 77 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 33/96] 127.0.0.1 () {38 vars in 790 bytes} [Sat Aug 15 08:35:55 2020] GET /admin/jsi18n/ => generated 7722 bytes in 34 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 34/97] 127.0.0.1 () {38 vars in 790 bytes} [Sat Aug 15 08:35:55 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 35/98] 127.0.0.1 () {40 vars in 851 bytes} [Sat Aug 15 08:36:08 2020] GET /admin/ => generated 17971 bytes in 16 msecs (HTTP/1.1 200) 6 headers in 249 bytes (1 switches on core 0)
+[pid: 15819|app: -1|req: -1/99] 127.0.0.1 () {42 vars in 859 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/automatic/dicts.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/100] 127.0.0.1 () {42 vars in 863 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/automatic/segment.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/101] 127.0.0.1 () {42 vars in 853 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/locale/en-us.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/102] 127.0.0.1 () {42 vars in 857 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/locale/zh-hans.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/103] 127.0.0.1 () {42 vars in 847 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/js/cookie.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/104] 127.0.0.1 () {42 vars in 851 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/theme/theme.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/105] 127.0.0.1 () {42 vars in 859 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/waves/waves.min.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: -1|req: -1/106] 127.0.0.1 () {42 vars in 845 bytes} [Sat Aug 15 08:36:08 2020] GET /static/admin/simpleui-x/js/index.js?_=4.0.3 => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 15819|app: 0|req: 36/107] 127.0.0.1 () {40 vars in 916 bytes} [Sat Aug 15 08:36:09 2020] GET /admin/medicaly/symptomtodisease/ => generated 69396 bytes in 169 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 37/108] 127.0.0.1 () {38 vars in 798 bytes} [Sat Aug 15 08:36:09 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 38/109] 127.0.0.1 () {40 vars in 949 bytes} [Sat Aug 15 08:36:15 2020] GET /admin/medicaly/symptomtodisease/?p=1 => generated 69691 bytes in 173 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 39/110] 127.0.0.1 () {38 vars in 802 bytes} [Sat Aug 15 08:36:15 2020] GET /admin/jsi18n/ => generated 7722 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 40/111] 127.0.0.1 () {40 vars in 953 bytes} [Sat Aug 15 08:36:18 2020] GET /admin/medicaly/symptomtodisease/?p=2 => generated 69718 bytes in 166 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 41/112] 127.0.0.1 () {38 vars in 802 bytes} [Sat Aug 15 08:36:18 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 42/113] 127.0.0.1 () {40 vars in 957 bytes} [Sat Aug 15 08:36:20 2020] GET /admin/medicaly/symptomtodisease/?p=367 => generated 42911 bytes in 100 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 43/114] 127.0.0.1 () {38 vars in 804 bytes} [Sat Aug 15 08:36:20 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 44/115] 127.0.0.1 () {40 vars in 898 bytes} [Sat Aug 15 08:36:27 2020] GET /admin/medicaly/symptom/ => generated 97247 bytes in 246 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 45/116] 127.0.0.1 () {38 vars in 789 bytes} [Sat Aug 15 08:36:28 2020] GET /admin/jsi18n/ => generated 7722 bytes in 30 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 46/117] 127.0.0.1 () {40 vars in 924 bytes} [Sat Aug 15 08:36:33 2020] GET /admin/medicaly/symptom/?p=391 => generated 94232 bytes in 225 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 47/118] 127.0.0.1 () {38 vars in 794 bytes} [Sat Aug 15 08:36:33 2020] GET /admin/jsi18n/ => generated 7722 bytes in 23 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 48/119] 127.0.0.1 () {40 vars in 931 bytes} [Sat Aug 15 08:36:36 2020] GET /admin/medicaly/symptom/?p=389 => generated 97865 bytes in 228 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 49/120] 127.0.0.1 () {38 vars in 794 bytes} [Sat Aug 15 08:36:36 2020] GET /admin/jsi18n/ => generated 7722 bytes in 31 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 50/121] 127.0.0.1 () {40 vars in 931 bytes} [Sat Aug 15 08:36:39 2020] GET /admin/medicaly/symptom/?p=390 => generated 97915 bytes in 255 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 51/122] 127.0.0.1 () {38 vars in 794 bytes} [Sat Aug 15 08:36:39 2020] GET /admin/jsi18n/ => generated 7722 bytes in 30 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 52/123] 127.0.0.1 () {40 vars in 932 bytes} [Sat Aug 15 08:36:41 2020] GET /admin/medicaly/symptom/?p=391 => generated 94232 bytes in 234 msecs (HTTP/1.1 200) 7 headers in 417 bytes (1 switches on core 0)
+[pid: 15819|app: 0|req: 53/124] 127.0.0.1 () {38 vars in 795 bytes} [Sat Aug 15 08:36:41 2020] GET /admin/jsi18n/ => generated 7722 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 144 bytes (1 switches on core 0)
