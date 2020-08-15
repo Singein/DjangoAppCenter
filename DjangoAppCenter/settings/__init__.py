@@ -22,11 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_OPTIONS = {
     'admin_site_title': 'DjangoAppCenter',
     'admin_site_header': 'DjangoAppCenter',
-    'redirect': 'admin/',
+    'redirect': 'admin/',  # 重定向
+    'static_root': '~/.statics',  # 静态资源地址
     'apps': [],
     'middlewares': [],
     "routers": [],
-    'database_routers':[],
+    'database_routers': [],
     'databases': {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -40,6 +41,9 @@ DEFAULT_OPTIONS = {
         'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
         'PAGE_SIZE': 100,
         'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    },
+    'admin_ui': {
+
     }
 }
 
@@ -166,3 +170,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = OPTIONS.get('static_root')
