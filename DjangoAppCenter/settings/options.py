@@ -31,11 +31,19 @@ DEFAULT_OPTIONS = {
         'PAGE_SIZE': 100,
         'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
     },
-    'admin_ui': {
-
+    'logs_dir': 'path/to/logs',
+    'email': {
+        'subject_prefix': 'DjangoAppCenter',
+        'server_email': 'xxx@xxx.com',
+        'email_host': 'smtp.163.com',
+        'email_host_user': 'xxx@xxx.com',
+        'email_host_password': 'xxxxxx',
+        'email_port': 25,
+        'email_use_tls': True,
+        'email_from': 'xxx@xxx.com',
+        'admins': [('xxx', 'xxx@xxx.com')]
     }
 }
-
 
 profile = OSProfile(appname="DjangoAppCenter",
                     profile="profile.json", options=DEFAULT_OPTIONS)

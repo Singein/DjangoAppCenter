@@ -13,8 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 from django.contrib import admin
+from DjangoAppCenter.settings.adminui import *
+from DjangoAppCenter.settings.email import *
+from DjangoAppCenter.settings.log import LOGGING
 from DjangoAppCenter.settings.options import BASE_DIR, DEFAULT_OPTIONS, OPTIONS
-
 
 # custom_settings = OPTIONS.get('custom_settings', None)  # 暂时没用到
 
