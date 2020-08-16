@@ -1,0 +1,45 @@
+{
+    "admin_site_title": "DjangoAppCenter",
+    "admin_site_header": "DjangoAppCenter",
+    "allowed_host": "0.0.0.0",
+    "port": 6666,
+    "static_root": "~/.statics",
+    "redirect": "admin/",
+    "apps": [],
+    "middlewares": [],
+    "routers": [],
+    "database_routers": [],
+    "databases": {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "/home/singein/Projects/me/appcenter/DjangoAppCenter/db.sqlite3"
+        }
+    },
+    "rest_framework": {
+        "DEFAULT_PERMISSION_CLASSES": [
+            "rest_framework.permissions.IsAuthenticated"
+        ],
+        "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+        "PAGE_SIZE": 100,
+        "DEFAULT_FILTER_BACKENDS": [
+            "django_filters.rest_framework.DjangoFilterBackend"
+        ]
+    },
+    "logs_dir": "path/to/logs",
+    "email": {
+        "subject_prefix": "DjangoAppCenter",
+        "server_email": "xxx@xxx.com",
+        "email_host": "smtp.163.com",
+        "email_host_user": "xxx@xxx.com",
+        "email_host_password": "xxxxxx",
+        "email_port": 25,
+        "email_use_tls": true,
+        "email_from": "xxx@xxx.com",
+        "admins": [
+            [
+                "xxx",
+                "xxx@xxx.com"
+            ]
+        ]
+    }
+}
