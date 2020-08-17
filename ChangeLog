@@ -1,17 +1,19 @@
 CHANGES
 =======
 
-v0.2.0
+v0.2.1
 ------
 
+* [release] 0.2.1
+* ci(.gitignore): 修改gitignore 添加了idea
+* fix(osprofile): 移除osprofile依赖
+* feat(settings): 新增了日志和邮件的配置
+* refactor(settings): 重新组织了默认配置的代码
+* docs(ChangeLog): update changes about [0.2.0]
 * [release] 0.2.0
 * feat(settings): 实现了端口的配置
 * feat(cli): 新增了deploy方法，实现了uwsgi的部署
 * docs(ChangeLog): update changes about [0.1.4]
-
-v0.1.4
-------
-
 * [release] 0.1.4
 * fix(requirements.txt): 移除postgresql依赖
 * docs(ChangeLog): update changes about [0.1.3]
