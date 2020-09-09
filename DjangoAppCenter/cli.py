@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(os.getcwd()))
 
 
 def debug():
-    """Django's command-line utility for administrative tasks."""
+    """run django in debug mode"""
     os.environ.setdefault('APP_CENTER_ENVIRON', 'DEBUG')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
     try:
@@ -26,7 +26,7 @@ def debug():
 
 
 def prod():
-    """Django's command-line utility for administrative tasks."""
+    """run django in production mode"""
 
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
@@ -43,6 +43,9 @@ def prod():
 
 
 def deploy():
+    """
+    run django with uwsgi
+    """
 
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
 
