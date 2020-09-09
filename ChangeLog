@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.2.3
+------
+
+* [release] 0.2.3
+* feat(settings): 新增了DjangoAppCenter的配置文件初始化方法
+* docs(ChangeLog): update changes about [0.2.2]
+
 v0.2.2
 ------
 
