@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+v0.3.0
+------
+
+* [release] 0.3.0
+* feat(extensions): 新增extension模块并加入了snowflakeid字段
+* build(dcoker.py): 修改了docker的构建模板，添加了几行注释
+* docs(cli): 修改了cli下的函数注释
+* docs(ChangeLog): update changes about [0.2.4]
+
 v0.2.4
 ------
 
