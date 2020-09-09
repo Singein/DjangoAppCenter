@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.2.4
+------
+
+* [release] 0.2.4
+* build(setup.cfg): 修改entry\_points指令名称
+* docs(ChangeLog): update changes about [0.2.3]
+
 v0.2.3
 ------
 
