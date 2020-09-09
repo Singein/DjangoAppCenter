@@ -16,7 +16,8 @@ from django.contrib import admin
 from DjangoAppCenter.settings.adminui import *
 from DjangoAppCenter.settings.email import *
 from DjangoAppCenter.settings.log import LOGGING
-from DjangoAppCenter.settings.options import BASE_DIR, DEFAULT_OPTIONS, OPTIONS
+from DjangoAppCenter.settings.options import BASE_DIR, DEFAULT_OPTIONS, OPTIONS, PROFILE_NAME
+from DjangoAppCenter.settings.docker import DOCKER_FILE_TEMPLATE
 
 # custom_settings = OPTIONS.get('custom_settings', None)  # 暂时没用到
 

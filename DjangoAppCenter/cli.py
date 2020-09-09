@@ -1,7 +1,9 @@
 import os
+import json
 import sys
 import fire
-from DjangoAppCenter.settings import OPTIONS
+from DjangoAppCenter.settings import OPTIONS, PROFILE_NAME, DEFAULT_OPTIONS, DOCKER_FILE_TEMPLATE
+
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(os.path.abspath(os.getcwd()))
@@ -56,9 +58,24 @@ def deploy():
               (allowed_host, str(port), wsgi_path, static_root))
 
 
+def init_profile():
+    cwd = os.getcwd()
+    profile = os.path.join(os.path.abspath(cwd), PROFILE_NAME)
+    dockerfile = os.path.join(os.path.abspath(cwd), "Dockerfile")
+
+    if not os.path.exists(profile):
+        with open(profile, "w", encoding="utf-8") as f:
+            f.write(json.dumps(DEFAULT_OPTIONS))
+
+    if not os.path.exists(dockerfile):
+        with open(dockerfile, "w", encoding="utf-8") as f:
+            f.write(json.dumps(DOCKER_FILE_TEMPLATE))
+
+
 def entry():
     fire.Fire({
         'debug': debug,
         'prod': prod,
-        'deploy': deploy
+        'deploy': deploy,
+        'init': init_profile
     })

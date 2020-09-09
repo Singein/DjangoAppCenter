@@ -11,7 +11,7 @@ DEFAULT_OPTIONS = {
     'admin_site_header': 'DjangoAppCenter',
     'allowed_host': '0.0.0.0',
     'port': 6666,
-    'static_root': '~/.statics',  # 静态资源地址
+    'static_root': 'statics',  # 静态资源地址
     'redirect': 'admin/',  # 重定向
     'apps': [],
     'middlewares': [],
@@ -31,7 +31,7 @@ DEFAULT_OPTIONS = {
         'PAGE_SIZE': 100,
         'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
     },
-    'logs_dir': 'path/to/logs',
+    'logs_dir': 'logs',
     'email': {
         'subject_prefix': 'DjangoAppCenter',
         'server_email': 'xxx@xxx.com',
@@ -45,6 +45,9 @@ DEFAULT_OPTIONS = {
     }
 }
 
-profile = OSProfile(appname="DjangoAppCenter",
-                    profile="profile.json", options=DEFAULT_OPTIONS)
-OPTIONS = profile.read_profile()
+
+osprofile = OSProfile(appname="DjangoAppCenter",
+                      profile="profile.json", options=DEFAULT_OPTIONS)
+
+PROFILE_NAME = osprofile.profile
+OPTIONS = osprofile.read_profile()

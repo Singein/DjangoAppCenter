@@ -3,7 +3,7 @@
     "admin_site_header": "DjangoAppCenter",
     "allowed_host": "0.0.0.0",
     "port": 6666,
-    "static_root": "~/.statics",
+    "static_root": "statics",
     "redirect": "admin/",
     "apps": [],
     "middlewares": [],
@@ -25,7 +25,7 @@
             "django_filters.rest_framework.DjangoFilterBackend"
         ]
     },
-    "logs_dir": "path/to/logs",
+    "logs_dir": "logs",
     "email": {
         "subject_prefix": "DjangoAppCenter",
         "server_email": "xxx@xxx.com",

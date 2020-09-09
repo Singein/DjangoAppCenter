@@ -13,6 +13,7 @@ class OSProfile:
 
     def __init__(self, appname: str = None, profile: str = None, options: dict = None, path: str = '.'):
 
+
         if appname is not None and profile is not None:
 
             paths = [path, 'USER_HOME', '.']
