@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+v0.2.4
+------
+
+* [release] 0.2.4
 * build(dcoker.py): 修改了docker的构建模板，添加了几行注释
 * docs(cli): 修改了cli下的函数注释
 * docs(ChangeLog): update changes about [0.2.4]
