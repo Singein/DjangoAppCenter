@@ -3,7 +3,10 @@
     "admin_site_header": "DjangoAppCenter",
     "allowed_host": "0.0.0.0",
     "port": 6666,
+    "static_url": "/static/",
     "static_root": "statics",
+    "media_url": "/media/",
+    "media_root": "uploads",
     "redirect": "admin/",
     "apps": [],
     "middlewares": [],
@@ -12,7 +15,7 @@
     "databases": {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": "/home/singein/Projects/me/appcenter/DjangoAppCenter/db.sqlite3"
+            "NAME": "db.sqlite3"
         }
     },
     "rest_framework": {
