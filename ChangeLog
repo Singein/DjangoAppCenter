@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.3
+------
+
+* [release] 0.3.3
+* fix(cli.init): 修复了dockerfile的初始化错误
+* docs(ChangeLog): update changes about [0.3.2]
+
 v0.3.2
 ------
 
