@@ -100,7 +100,7 @@ LOGGING = {
         },
         'admin': {
             'handlers': ['mail_admins', 'mail_admins_info', 'error'],
-            'level': 'ERROR'
+            'level': 'INFO'
         }
     }
 }

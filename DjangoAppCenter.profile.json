@@ -31,17 +31,17 @@
     "logs_dir": "logs",
     "email": {
         "subject_prefix": "DjangoAppCenter",
-        "server_email": "xxx@xxx.com",
+        "server_email": "singein@163.com",
         "email_host": "smtp.163.com",
-        "email_host_user": "xxx@xxx.com",
-        "email_host_password": "xxxxxx",
+        "email_host_user": "singein@163.com",
+        "email_host_password": "IOPBNAJEFUACRGXI",
         "email_port": 25,
         "email_use_tls": true,
-        "email_from": "xxx@xxx.com",
+        "email_from": "singein@163.com",
         "admins": [
             [
-                "xxx",
-                "xxx@xxx.com"
+                "singein",
+                "singein@qq.com"
             ]
         ]
     }
