@@ -1,9 +1,10 @@
-import os
 import json
+import os
 import sys
-import fire
-from DjangoAppCenter.settings import OPTIONS, PROFILE_NAME, DEFAULT_OPTIONS, DOCKER_FILE_TEMPLATE
 
+import fire
+
+from DjangoAppCenter.settings import OPTIONS, PROFILE_NAME, DEFAULT_OPTIONS, DOCKER_FILE_TEMPLATE
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(os.path.abspath(os.getcwd()))
@@ -72,7 +73,7 @@ def init_profile():
 
     if not os.path.exists(dockerfile):
         with open(dockerfile, "w", encoding="utf-8") as f:
-            f.write(json.dumps(DOCKER_FILE_TEMPLATE))
+            f.write(DOCKER_FILE_TEMPLATE)
 
 
 def entry():

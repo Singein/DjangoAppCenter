@@ -1,8 +1,9 @@
 """默认配置
 """
 
-from DjangoAppCenter.settings.osprofile import OSProfile
 import os
+
+from DjangoAppCenter.settings.osprofile import OSProfile
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -11,7 +12,10 @@ DEFAULT_OPTIONS = {
     'admin_site_header': 'DjangoAppCenter',
     'allowed_host': '0.0.0.0',
     'port': 6666,
+    'static_url': '/static/',  # 静态资源映射url
     'static_root': 'statics',  # 静态资源地址
+    'media_url': '/media/',  # 上传的媒体资源url
+    'media_root': 'uploads',  # 上传的媒体资源存放路径
     'redirect': 'admin/',  # 重定向
     'apps': [],
     'middlewares': [],
@@ -20,7 +24,7 @@ DEFAULT_OPTIONS = {
     'databases': {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': 'db.sqlite3'
         }
     },
     'rest_framework': {
@@ -44,7 +48,6 @@ DEFAULT_OPTIONS = {
         'admins': [('xxx', 'xxx@xxx.com')]
     }
 }
-
 
 osprofile = OSProfile(appname="DjangoAppCenter",
                       profile="profile.json", options=DEFAULT_OPTIONS)

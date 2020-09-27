@@ -1,6 +1,36 @@
 CHANGES
 =======
 
+v0.3.3
+------
+
+* [release] 0.3.3
+* fix(cli.init): 修复了dockerfile的初始化错误
+* docs(ChangeLog): update changes about [0.3.2]
+
+v0.3.2
+------
+
+* [release] 0.3.2
+* feat(settings): 新增了media相关的配置
+* docs(ChangeLog): update changes about [0.3.1]
+
+v0.3.1
+------
+
+* [release] 0.3.1
+* fix(extensions.fields.snowflake.field): 修复拼写错误
+* docs(ChangeLog): update changes about [0.3.0]
+
+v0.3.0
+------
+
+* [release] 0.3.0
+* feat(extensions): 新增extension模块并加入了snowflakeid字段
+* build(dcoker.py): 修改了docker的构建模板，添加了几行注释
+* docs(cli): 修改了cli下的函数注释
+* docs(ChangeLog): update changes about [0.2.4]
+
 v0.2.4
 ------
 
