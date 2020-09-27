@@ -2,7 +2,6 @@ import os
 
 from DjangoAppCenter.settings.options import OPTIONS
 
-
 logs_dir = OPTIONS.get('logs_dir')
 if not os.path.exists(logs_dir):
     os.mkdir(logs_dir)
@@ -47,7 +46,7 @@ LOGGING = {
             'include_html': True,
             'formatter': 'standard'
         },
-        'mail_admins_debug': {
+        'mail_admins_info': {
             'level': 'DEBUG',
             'class': 'django.utils.log.AdminEmailHandler',
             # 'email_backend': 'django.core.mail.backends.smtp.EmailBackend',
@@ -100,7 +99,7 @@ LOGGING = {
             'level': 'INFO',
         },
         'admin': {
-            'handlers': ['mail_admins', 'error'],
+            'handlers': ['mail_admins', 'mail_admins_info', 'error'],
             'level': 'ERROR'
         }
     }
