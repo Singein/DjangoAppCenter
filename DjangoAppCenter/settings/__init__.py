@@ -40,30 +40,37 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
+
 INSTALLED_APPS = [
-                     'DjangoAppCenter.simpleui',
-                     'django.contrib.admin',
-                     'django.contrib.auth',
-                     'django.contrib.contenttypes',
-                     'django.contrib.sessions',
-                     'django.contrib.messages',
-                     'django.contrib.staticfiles',
-                     'rest_framework',
-                     'django_filters',
-                     'DjangoAppCenter.packages'
-                 ] + OPTIONS.get('apps', [])
+    'DjangoAppCenter.simpleui',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'guardian',
+    'rest_framework',
+    'django_filters',
+    'DjangoAppCenter.packages',
+    *OPTIONS.get('apps', [])
+]
 
 MIDDLEWARE = [
-                 'django.middleware.security.SecurityMiddleware',
-                 'django.contrib.sessions.middleware.SessionMiddleware',
-                 'corsheaders.middleware.CorsMiddleware',
-                 'django.middleware.common.CommonMiddleware',
-                 'django.middleware.csrf.CsrfViewMiddleware',
-                 'django.contrib.auth.middleware.AuthenticationMiddleware',
-                 'django.contrib.messages.middleware.MessageMiddleware',
-                 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-             ] + OPTIONS.get('middlewares', [])
-
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    *OPTIONS.get('middlewares', [])
+]
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # default
+    'guardian.backends.ObjectPermissionBackend',
+)
 ROOT_URLCONF = 'DjangoAppCenter.settings.urls'
 
 TEMPLATES = [

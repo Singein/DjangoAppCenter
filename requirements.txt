@@ -6,3 +6,4 @@ django-filter==2.2.0
 fire
 pypinyin==0.37.0
 uwsgi
+django-guardian
