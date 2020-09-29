@@ -3,20 +3,23 @@
 
 from django.conf import settings
 
-
-options = getattr(settings, 'OPTIONS', {})
+apps = getattr(settings, 'INSTALLED_APPS', [])
 
 
 class Router:
     def db_for_read(self, model, **hints):
         app_label = model._meta.app_label
-        if app_label in options.get('apps', []):
+        if app_label == 'settings':
+            return 'settings'
+        if app_label in apps:
             return app_label
         return 'default'
 
     def db_for_write(self, model, **hints):
         app_label = model._meta.app_label
-        if app_label in options.get('apps', []):
+        if app_label == 'settings':
+            return 'settings'
+        if app_label in apps:
             return app_label
         return 'default'
 

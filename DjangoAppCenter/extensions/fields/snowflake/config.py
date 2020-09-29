@@ -1,9 +1,9 @@
-from DjangoAppCenter.settings import OPTIONS
+from django.conf import settings
 
-MACHINE_ID = getattr(OPTIONS, "MACHINE_ID", 1)  # 机器ID
-DATA_CENTER_ID = getattr(OPTIONS, "DATA_CENTER_ID", 1)  # 数据中心ID
-SEQUENCE = getattr(OPTIONS, "SEQUENCE", 14)  # 从哪个整数开始计数
-RANDOM_TIME = getattr(OPTIONS, "RANDOM_TIME", 1288834974657)  # 时间戳 Timestamp
+MACHINE_ID = getattr(settings, "SNOWFLAKE_MACHINE_ID", 1)  # 机器ID
+DATA_CENTER_ID = getattr(settings, "SNOWFLAKE_DATA_CENTER_ID", 1)  # 数据中心ID
+SEQUENCE = getattr(settings, "SNOWFLAKE_SEQUENCE", 14)  # 从哪个整数开始计数
+RANDOM_TIME = getattr(settings, "SNOWFLAKE_RANDOM_TIME", 1288834974657)  # 时间戳 Timestamp
 
 if MACHINE_ID is None:
     raise Exception(

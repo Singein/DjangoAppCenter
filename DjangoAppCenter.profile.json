@@ -2,13 +2,16 @@
   "admin_site_title": "DjangoAppCenter",
   "admin_site_header": "DjangoAppCenter",
   "allowed_host": "0.0.0.0",
+  "allowed_hosts": "0.0.0.0",
   "port": 6666,
   "static_url": "/static/",
   "static_root": "statics",
   "media_url": "/media/",
   "media_root": "uploads",
   "redirect": "admin/",
-  "apps": [],
+  "apps": [
+    "DjangoAppCenter.settings"
+  ],
   "middlewares": [],
   "routers": [],
   "database_routers": [],

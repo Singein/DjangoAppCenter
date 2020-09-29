@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import include, path
-from DjangoAppCenter.settings import OPTIONS
+
+from DjangoAppCenter.settings import load_settings
+
+SETTINGS = load_settings()
 
 
 def index(request):
-    redirect_to = OPTIONS.get('redirect', 'admin/')
+    redirect_to = SETTINGS.get('redirect', 'admin/')
     return redirect(redirect_to)
 
 
@@ -29,7 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-routers = OPTIONS.get('routers', [])
+routers = SETTINGS.get('routers', [])
 
 # {path: 'app/', model:'app', handler: 'app.api' }
 # 动态导入包

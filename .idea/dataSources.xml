@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="ec8eb394-8edc-456e-ba63-a8968803a63a">
+    <data-source source="LOCAL" name="db.sqlite3" uuid="3d5c747e-bb1e-4537-aae6-c576a1b57f78">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="DjangoAppCenterSettings" uuid="c4b2c97e-d5ac-4dca-9651-35c2f85e356f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/DjangoAppCenter/settings/settings.sqlite3</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="settings.sqlite3" uuid="7493c4d3-35df-49d1-9b2e-d5825a9c601b">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/settings.sqlite3</jdbc-url>
     </data-source>
   </component>
 </project>
