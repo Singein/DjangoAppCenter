@@ -32,6 +32,7 @@ def prod():
     """run django in production mode"""
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
     custom_settings = load_settings()
+    custom_settings.get("DATABASES", {}).update(**get_settings_dbcfg())
     settings.configure(**custom_settings)
     django.setup()
     try:
