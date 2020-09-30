@@ -85,6 +85,6 @@
   "MEDIA_URL": "/media/",
   "MEDIA_ROOT": "uploads",
   "REST_FRAMEWORK": {},
-  "ADMIN_SITE_TITLE": "DjangoAppCenter",
-  "ADMIN_SITE_HEADER": "DjangoAppCenter"
+  "ADMIN_SITE_TITLE": "AppCenter",
+  "ADMIN_SITE_HEADER": "AppCenter"
 }

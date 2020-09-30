@@ -6,10 +6,10 @@ from shutil import copyfile
 from DjangoAppCenter.settings.log import LOGGING
 
 BASE_SETTING_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_SETTINGS_DB_PATH = os.path.join(BASE_SETTING_DIR, "settings.sqlite3")
-DEFAULT_DB_PATH = os.path.join(BASE_SETTING_DIR, "default.sqlite3")
-CWD_SETTINGS_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "settings.sqlite3")
-CWD_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "default.sqlite3")
+DEFAULT_SETTINGS_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "settings.sqlite3")
+DEFAULT_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "db.sqlite3")
+CWD_SETTINGS_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "databases", "settings.sqlite3")
+CWD_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "databases", "db.sqlite3")
 PROFILE = "settings.json"
 
 
@@ -61,10 +61,10 @@ def load_settings() -> dict:
         return load_settings_from_file()
 
     elif environment == "PROD":
-        return load_settings_from_db()
+        return load_settings_from_file()
 
     else:
-        raise SettingsLoadingError("settings loading error.")
+        raise load_settings_from_file()
 
 
 def init_profile():
