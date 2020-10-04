@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.5
+------
+
+* [release] 0.3.5
+* fix(settings): 修复路径参数错误
+* docs(ChangeLog): update changes about [0.3.4]
+
 v0.3.4
 ------
 
