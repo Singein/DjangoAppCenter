@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.6
+------
+
+* [release] 0.3.6
+* feat(log): 移除log默认配置
+* docs(ChangeLog): update changes about [0.3.5]
+
 v0.3.5
 ------
 
