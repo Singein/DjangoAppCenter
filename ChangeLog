@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.7
+------
+
+* [release] 0.3.7
+* feat(cli): 新增 py-reload选项
+* docs(ChangeLog): update changes about [0.3.6]
+
 v0.3.6
 ------
 
