@@ -8,8 +8,8 @@ from DjangoAppCenter.settings.log import LOGGING
 BASE_SETTING_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_SETTINGS_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "settings.sqlite3")
 DEFAULT_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "db.sqlite3")
-CWD_SETTINGS_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "databases", "settings.sqlite3")
-CWD_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "databases", "db.sqlite3")
+CWD_SETTINGS_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "settings.sqlite3")
+CWD_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "db.sqlite3")
 PROFILE = "settings.json"
 
 
