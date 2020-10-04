@@ -1,7 +1,7 @@
 
 package = {
     'name': 'DjangoAppCenter',
-    'version': '0.3.4',
+    'version': '0.3.5',
     'author': 'singein',
     'email': 'singein@outlook.com',
     'scripts': {
