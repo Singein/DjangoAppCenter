@@ -14,7 +14,7 @@ from django.core.wsgi import get_wsgi_application
 
 from DjangoAppCenter.settings import load_settings
 
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
 os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
 custom_settings = load_settings()
 settings.configure(**custom_settings)
