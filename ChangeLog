@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.11
+-------
+
+* [release] 0.3.11
+* feat(settings): 修改了加载设置的逻辑
+* docs(ChangeLog): update changes about [0.3.10]
+
 v0.3.10
 -------
 
