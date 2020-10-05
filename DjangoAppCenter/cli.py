@@ -55,7 +55,7 @@ def deploy():
     allowed_host = custom_settings.get('allowed_host', '0.0.0.0')
     port = custom_settings.get('port', 8000)
     os.system("python -m DjangoAppCenter prod collectstatic --noinput")
-    os.system("uwsgi --py-reload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+    os.system("uwsgi --py-autoreload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
         allowed_host, str(port), wsgi_path, static_root))
 
 
