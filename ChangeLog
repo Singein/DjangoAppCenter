@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.8
+------
+
+* [release] 0.3.8
+* fix(cli): 修复uwsgi参数错误
+* docs(ChangeLog): update changes about [0.3.7]
+
 v0.3.7
 ------
 
