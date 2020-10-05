@@ -1,12 +1,10 @@
 import os
 import sys
 
-import django
 import fire
-from django.conf import settings
 
-from DjangoAppCenter.settings import init_profile
-from DjangoAppCenter.settings import load_settings, get_settings_dbcfg
+from DjangoAppCenter.settings.loader import init_profile
+from DjangoAppCenter.settings.loader import load_settings
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(os.path.abspath(os.getcwd()))
@@ -14,12 +12,8 @@ sys.path.append(os.path.abspath(os.getcwd()))
 
 def dev():
     """run django in debug mode"""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
     os.environ.setdefault('APP_CENTER_ENVIRON', 'DEV')
-
-    custom_settings = load_settings()
-    custom_settings.get("DATABASES", {}).update(**get_settings_dbcfg())
-    settings.configure(**custom_settings)
-    django.setup()
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -30,11 +24,8 @@ def dev():
 
 def prod():
     """run django in production mode"""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
-    custom_settings = load_settings()
-    custom_settings.get("DATABASES", {}).update(**get_settings_dbcfg())
-    settings.configure(**custom_settings)
-    django.setup()
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -53,7 +44,7 @@ def deploy():
     wsgi_path = os.path.join(os.path.dirname(
         os.path.abspath(__file__)), "settings", 'wsgi.py')
     allowed_host = custom_settings.get('allowed_host', '0.0.0.0')
-    port = custom_settings.get('port', 8000)
+    port = custom_settings.get('PORT', 8888)
     os.system("python -m DjangoAppCenter prod collectstatic --noinput")
     os.system("uwsgi --py-autoreload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
         allowed_host, str(port), wsgi_path, static_root))

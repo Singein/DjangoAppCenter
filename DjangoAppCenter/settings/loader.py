@@ -1,6 +1,7 @@
 import json
 import os
 import sqlite3
+from shutil import copyfile
 
 BASE_SETTING_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_SETTINGS_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "settings.sqlite3")
@@ -33,7 +34,6 @@ def load_settings_from_db() -> dict:
     cursor.execute("select * from settings_settings")
     result = cursor.fetchall()
     settings = {}
-    settings.update({"LOGGING": LOGGING})
     for r in result:
         key = r[1]
         raw_json = r[2]
@@ -47,7 +47,37 @@ def load_settings_from_db() -> dict:
 
 def load_settings_from_file() -> dict:
     settings_path = os.path.join(os.getcwd(), "settings.json")
-    settings = dict()
-    settings.update({"LOGGING": LOGGING})
-    settings.update(json.loads(open(settings_path, encoding="utf-8").read()))
+    settings = json.loads(open(settings_path, encoding="utf-8").read())
     return settings
+
+
+def load_settings() -> dict:
+    environment = os.environ.get("APP_CENTER_ENVIRON")
+    if environment == "DEV":
+        return load_settings_from_file()
+
+    elif environment == "PROD":
+        return load_settings_from_file()
+
+    else:
+        return load_settings_from_file()
+
+
+def init_profile():
+    cwd = os.getcwd()
+    profile = os.path.join(os.path.abspath(cwd), PROFILE)
+    dockerfile = os.path.join(os.path.abspath(cwd), "Dockerfile")
+    docker_template = load_settings_from_db().get("DOCKER_TEMPLATE")
+
+    if not os.path.exists(profile):
+        copyfile(os.path.join(BASE_SETTING_DIR, "settings.default.json"), profile)
+
+    if not os.path.exists(CWD_SETTINGS_DB_PATH):
+        copyfile(DEFAULT_SETTINGS_DB_PATH, CWD_SETTINGS_DB_PATH)
+
+    if not os.path.exists(CWD_DB_PATH):
+        copyfile(DEFAULT_DB_PATH, CWD_DB_PATH)
+
+    if not os.path.exists(dockerfile):
+        with open(dockerfile, "w", encoding="utf-8") as f:
+            f.write(docker_template)
