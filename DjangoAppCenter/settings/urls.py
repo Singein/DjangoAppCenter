@@ -14,21 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.shortcuts import redirect
 from django.urls import include, path
 
 from DjangoAppCenter.settings import load_settings
 
 SETTINGS = load_settings()
 
-
-def index(request):
-    redirect_to = SETTINGS.get('redirect', 'admin/')
-    return redirect(redirect_to)
-
-
 urlpatterns = [
-    path('', index),
     path('admin/', admin.site.urls),
 ]
 
