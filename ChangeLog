@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.4.0
+------
+
+* [release] 0.4.0
+* refactor(settings): 修该 packages和models的模型的表名，同时关闭默认的settings数据库配置
+* docs(ChangeLog): update changes about [0.3.12]
+
 v0.3.12
 -------
 
