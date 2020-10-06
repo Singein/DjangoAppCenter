@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.3.12
+-------
+
+* [release] 0.3.12
+* feat(urls): 移除自动重定向的配置
+* docs(ChangeLog): update changes about [0.3.11]
+
 v0.3.11
 -------
 
