@@ -51,3 +51,6 @@ class Package(models.Model):
         logger.info(f"Package {self.name} v{self.version} start installing.")
         task = threading.Thread(target=self.install)
         task.start()
+
+    class Meta:
+        db_table = "dac_packages"

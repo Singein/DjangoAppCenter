@@ -11,3 +11,6 @@ class Settings(models.Model):
 
     def __str__(self):
         return self.key
+
+    class Meta:
+        db_table = "dac_settings"
