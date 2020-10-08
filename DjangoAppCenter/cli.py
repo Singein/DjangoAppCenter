@@ -34,6 +34,22 @@ def prod():
     execute_from_command_line(args)
 
 
+def deploy_nginx():
+    """
+    run django with uwsgi
+    """
+    os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
+    custom_settings = load_settings()
+    static_root = custom_settings.get('static_root', 'statics')
+    wsgi_path = os.path.join(os.path.dirname(
+        os.path.abspath(__file__)), "settings", 'wsgi.py')
+    allowed_host = custom_settings.get('allowed_host', '0.0.0.0')
+    port = custom_settings.get('PORT', 8888)
+    os.system("python -m DjangoAppCenter prod collectstatic --noinput")
+    os.system("uwsgi --py-autoreload=1 --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+        allowed_host, str(port), wsgi_path, static_root))
+
+
 def deploy():
     """
     run django with uwsgi
@@ -55,5 +71,6 @@ def entry():
         'dev': dev,
         'prod': prod,
         'deploy': deploy,
+        'nginx': deploy_nginx,
         'init': init_profile
     })
