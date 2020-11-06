@@ -59,11 +59,11 @@ def deploy():
     static_root = custom_settings.get('static_root', 'statics')
     wsgi_path = os.path.join(os.path.dirname(
         os.path.abspath(__file__)), "settings", 'wsgi.py')
-    allowed_host = custom_settings.get('allowed_host', '0.0.0.0')
+    served_hosts = custom_settings.get('SERVED_HOSTS', '0.0.0.0')
     port = custom_settings.get('PORT', 8888)
     os.system("python -m DjangoAppCenter prod collectstatic --noinput")
     os.system("uwsgi --py-autoreload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
-        allowed_host, str(port), wsgi_path, static_root))
+        served_hosts, str(port), wsgi_path, static_root))
 
 
 def entry():

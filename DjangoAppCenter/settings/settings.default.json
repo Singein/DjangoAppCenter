@@ -5,6 +5,7 @@
   "ALLOWED_HOSTS": [
     "*"
   ],
+  "SERVED_HOSTS": "0.0.0.0",
   "CORS_ORIGIN_ALLOW_ALL": true,
   "CORS_ALLOW_CREDENTIALS": true,
   "INSTALLED_APPS": [
@@ -51,9 +52,7 @@
       }
     }
   ],
-  "DATABASE_ROUTERS": [
-    "DjangoAppCenter.settings.dbrouters.Router"
-  ],
+  "DATABASE_ROUTERS": [],
   "WSGI_APPLICATION": "DjangoAppCenter.settings.wsgi.application",
   "DATABASES": {
     "default": {

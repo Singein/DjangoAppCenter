@@ -5,10 +5,12 @@ from shutil import copyfile
 
 BASE_SETTING_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_SETTINGS_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "settings.sqlite3")
+DEFAULT_SETTINGS_PATH = os.path.join(BASE_SETTING_DIR, "settings.default.json")
 DEFAULT_DB_PATH = os.path.join(BASE_SETTING_DIR, "databases", "db.sqlite3")
 CWD_SETTINGS_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "settings.sqlite3")
 CWD_DB_PATH = os.path.join(os.path.abspath(os.getcwd()), "db.sqlite3")
 PROFILE = "settings.json"
+CWD_SETTINGS_PATH = os.path.join(BASE_SETTING_DIR, PROFILE)
 
 
 class SettingsLoadingError:
@@ -39,28 +41,29 @@ def load_settings_from_db() -> dict:
         raw_json = r[2]
         try:
             settings[key] = json.loads(raw_json)
-        except:
+        except json.JSONDecodeError:
             settings[key] = raw_json
 
     return settings
 
 
 def load_settings_from_file() -> dict:
-    settings_path = os.path.join(os.getcwd(), "settings.json")
-    settings = json.loads(open(settings_path, encoding="utf-8").read())
-    return settings
-
+    settings_path = CWD_SETTINGS_PATH if os.path.exists(CWD_SETTINGS_PATH) else DEFAULT_SETTINGS_PATH
+    return json.loads(open(settings_path, encoding="utf-8").read())
+    
 
 def load_settings() -> dict:
-    environment = os.environ.get("APP_CENTER_ENVIRON")
-    if environment == "DEV":
-        return load_settings_from_file()
+    # environment = os.environ.get("APP_CENTER_ENVIRON")
+    # if environment == "DEV":
+    #     return load_settings_from_file()
+    #
+    # elif environment == "PROD":
+    #     return load_settings_from_db()
+    #
+    # else:
+    #     return load_settings_from_file()
 
-    elif environment == "PROD":
-        return load_settings_from_file()
-
-    else:
-        return load_settings_from_file()
+    return load_settings_from_file()
 
 
 def init_profile():
