@@ -27,7 +27,7 @@ class SettingsLoadingError:
 
 
 def load_settings_from_db() -> dict:
-    if os.path.exists(CWD_SETTINGS_DB_PATH):
+    if os.path.exists(CWD_DB_PATH):
         connection = sqlite3.connect(CWD_DB_PATH)
     else:
         connection = sqlite3.connect(DEFAULT_DB_PATH)
