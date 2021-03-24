@@ -13,6 +13,15 @@ PROFILE = "settings.json"
 CWD_SETTINGS_PATH = os.path.join(BASE_SETTING_DIR, PROFILE)
 
 
+def get_default_database() -> dict:
+    return {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": DEFAULT_DB_PATH if not os.path.exists(CWD_DB_PATH) else CWD_DB_PATH
+        }
+    }
+
+
 class SettingsLoadingError:
     pass
 
@@ -24,7 +33,7 @@ def load_settings_from_db() -> dict:
         connection = sqlite3.connect(DEFAULT_DB_PATH)
 
     cursor = connection.cursor()
-    cursor.execute("select * from settings_settings")
+    cursor.execute("select * from dac_settings")
     result = cursor.fetchall()
     settings = {}
     for r in result:
@@ -42,8 +51,6 @@ def load_settings_from_file() -> dict:
     settings_path = CWD_SETTINGS_PATH if os.path.exists(CWD_SETTINGS_PATH) else DEFAULT_SETTINGS_PATH
     return json.loads(open(settings_path, encoding="utf-8").read())
 
-
-def load_settings() -> dict:
     return load_settings_from_db()
 
 

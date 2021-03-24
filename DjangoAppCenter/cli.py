@@ -4,7 +4,7 @@ import sys
 import fire
 
 from DjangoAppCenter.settings.loader import init_profile
-from DjangoAppCenter.settings.loader import load_settings
+from DjangoAppCenter.settings.loader import load_settings_from_db
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(os.path.abspath(os.getcwd()))
@@ -39,7 +39,7 @@ def deploy_nginx():
     run django with uwsgi
     """
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
-    custom_settings = load_settings()
+    custom_settings = load_settings_from_db()
     static_root = custom_settings.get('static_root', 'statics')
     wsgi_path = os.path.join(os.path.dirname(
         os.path.abspath(__file__)), "settings", 'wsgi.py')
@@ -55,7 +55,7 @@ def deploy():
     run django with uwsgi
     """
     os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
-    custom_settings = load_settings()
+    custom_settings = load_settings_from_db()
     static_root = custom_settings.get('static_root', 'statics')
     wsgi_path = os.path.join(os.path.dirname(
         os.path.abspath(__file__)), "settings", 'wsgi.py')

@@ -18,10 +18,10 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
 
-from DjangoAppCenter.settings import load_settings
+from DjangoAppCenter.settings import load_settings_from_db
 from DjangoAppCenter.signals import restart
 
-SETTINGS = load_settings()
+SETTINGS = load_settings_from_db()
 
 
 def restart_server(request):

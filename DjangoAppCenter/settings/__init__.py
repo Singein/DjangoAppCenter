@@ -1,4 +1,4 @@
-from DjangoAppCenter.settings.loader import get_settings_dbcfg, load_settings
+from DjangoAppCenter.settings.loader import load_settings_from_db, get_default_database
 
 """
 Django settings for demo project.
@@ -30,12 +30,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'DjangoAppCenter.simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'DjangoAppCenter.settings',
+    'DjangoAppCenter.packages'
+
 ]
 
 MIDDLEWARE = [
@@ -48,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'demo.urls'
+ROOT_URLCONF = 'DjangoAppCenter.settings.urls'
 
 TEMPLATES = [
     {
@@ -66,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'demo.wsgi.application'
+WSGI_APPLICATION = 'DjangoAppCenter.settings.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -113,8 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-settings = load_settings()
-settings.get("DATABASES", {}).update(**get_settings_dbcfg())
+settings = load_settings_from_db()
+settings.get("DATABASES", {}).update(**get_default_database())
+globals()['DATABASES'].update(**get_default_database())
 globals().update(settings)
-globals()
