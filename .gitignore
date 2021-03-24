@@ -9,3 +9,4 @@ build/
 .vscode/
 .idea/
 statics/
+appcenter/db.sqlite3

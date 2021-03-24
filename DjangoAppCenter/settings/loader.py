@@ -17,20 +17,11 @@ class SettingsLoadingError:
     pass
 
 
-def get_settings_dbcfg() -> dict:
-    return {
-        "settings": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": DEFAULT_SETTINGS_DB_PATH if not os.path.exists(CWD_SETTINGS_DB_PATH) else CWD_SETTINGS_DB_PATH
-        }
-    }
-
-
 def load_settings_from_db() -> dict:
     if os.path.exists(CWD_SETTINGS_DB_PATH):
-        connection = sqlite3.connect(CWD_SETTINGS_DB_PATH)
+        connection = sqlite3.connect(CWD_DB_PATH)
     else:
-        connection = sqlite3.connect(DEFAULT_SETTINGS_DB_PATH)
+        connection = sqlite3.connect(DEFAULT_DB_PATH)
 
     cursor = connection.cursor()
     cursor.execute("select * from settings_settings")
@@ -50,20 +41,10 @@ def load_settings_from_db() -> dict:
 def load_settings_from_file() -> dict:
     settings_path = CWD_SETTINGS_PATH if os.path.exists(CWD_SETTINGS_PATH) else DEFAULT_SETTINGS_PATH
     return json.loads(open(settings_path, encoding="utf-8").read())
-    
+
 
 def load_settings() -> dict:
-    # environment = os.environ.get("APP_CENTER_ENVIRON")
-    # if environment == "DEV":
-    #     return load_settings_from_file()
-    #
-    # elif environment == "PROD":
-    #     return load_settings_from_db()
-    #
-    # else:
-    #     return load_settings_from_file()
-
-    return load_settings_from_file()
+    return load_settings_from_db()
 
 
 def init_profile():
@@ -74,9 +55,6 @@ def init_profile():
 
     if not os.path.exists(profile):
         copyfile(os.path.join(BASE_SETTING_DIR, "settings.default.json"), profile)
-
-    if not os.path.exists(CWD_SETTINGS_DB_PATH):
-        copyfile(DEFAULT_SETTINGS_DB_PATH, CWD_SETTINGS_DB_PATH)
 
     if not os.path.exists(CWD_DB_PATH):
         copyfile(DEFAULT_DB_PATH, CWD_DB_PATH)

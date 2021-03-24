@@ -37,43 +37,14 @@
     "guardian.backends.ObjectPermissionBackend"
   ],
   "ROOT_URLCONF": "DjangoAppCenter.settings.urls",
-  "TEMPLATES": [
-    {
-      "BACKEND": "django.template.backends.django.DjangoTemplates",
-      "DIRS": [],
-      "APP_DIRS": true,
-      "OPTIONS": {
-        "context_processors": [
-          "django.template.context_processors.debug",
-          "django.template.context_processors.request",
-          "django.contrib.auth.context_processors.auth",
-          "django.contrib.messages.context_processors.messages"
-        ]
-      }
-    }
-  ],
   "DATABASE_ROUTERS": [],
   "WSGI_APPLICATION": "DjangoAppCenter.settings.wsgi.application",
   "DATABASES": {
     "default": {
       "ENGINE": "django.db.backends.sqlite3",
-      "NAME": "db.sqlite3"
+      "NAME": "./DjangoAppCenter/settings/databases/db.sqlite3"
     }
   },
-  "AUTH_PASSWORD_VALIDATORS": [
-    {
-      "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
-    {
-      "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"
-    },
-    {
-      "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"
-    },
-    {
-      "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
-    }
-  ],
   "LANGUAGE_CODE": "zh-hans",
   "TIME_ZONE": "Asia/Shanghai",
   "USE_I18N": true,
@@ -83,7 +54,6 @@
   "STATIC_ROOT": "statics",
   "MEDIA_URL": "/media/",
   "MEDIA_ROOT": "uploads",
-  "REST_FRAMEWORK": {},
   "ADMIN_SITE_TITLE": "DjangoAppCenter",
   "ADMIN_SITE_HEADER": "DjangoAppCenter"
 }

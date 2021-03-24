@@ -13,15 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
 
 from DjangoAppCenter.settings import load_settings
+from DjangoAppCenter.signals import restart
 
 SETTINGS = load_settings()
 
+
+def restart_server(request):
+    restart.RELOAD_SIGNAL.send(sender="xxx")
+    return HttpResponse("")
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('admin/restart', restart_server)
 ]
 
 routers = SETTINGS.get('routers', [])
