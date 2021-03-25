@@ -1,7 +1,9 @@
 {
   "SERVED_HOSTS": "0.0.0.0",
   "PORT": 8000,
-  "INSTALLED_APPS": [
+  "_INSTALLED_APPS": [
+  ],
+  "INSTALLED_APPS_": [
   ],
   "ROUTERS": [],
   "DATABASES": {

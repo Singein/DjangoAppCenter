@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 
 import fire
@@ -8,6 +9,26 @@ from DjangoAppCenter.settings.loader import load_settings_from_file
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(os.path.abspath(os.getcwd()))
+
+
+def get_python_version():
+    import subprocess
+    p = subprocess.Popen(['python', '--version'],
+                         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    stdout, stderr = p.communicate()
+
+    # 为了兼容 python 2.x 中 python --version 输出到 stderr 的bug
+    # https://bugs.python.org/issue18338
+    stdout = stderr if not stdout else stdout
+
+    version = re.findall(r'([0-9]+)\.([0-9]+)\.([0-9\+]+)', str(stdout))[0]
+
+    import platform
+    if (not platform.system() == 'Windows') and version[0] == '2':
+        return 'python3'
+
+    return 'python'
 
 
 def dev():
@@ -44,7 +65,7 @@ def deploy(reload: bool = True, use_nginx: bool = False):
     wsgi_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'wsgi.py')
     served_hosts = custom_settings.get('DAC_SERVED_HOSTS', '0.0.0.0')
     port = custom_settings.get('PORT', 8000)
-    os.system("python -m DjangoAppCenter prod collectstatic --noinput")
+    os.system("%s -m DjangoAppCenter prod collectstatic --noinput" % get_python_version())
     if use_nginx:
         if reload:
             os.system(
