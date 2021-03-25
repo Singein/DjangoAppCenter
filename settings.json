@@ -1,0 +1,59 @@
+{
+  "SECRET_KEY": "8v9)1@nj4g+*i56y4c5bf8-ug#!$mj*(#p^o!yw%gr9$5+2+g^",
+  "APP_CENTER_ENVIRON": "DEBUG",
+  "DEBUG": true,
+  "ALLOWED_HOSTS": [
+    "*"
+  ],
+  "SERVED_HOSTS": "0.0.0.0",
+  "CORS_ORIGIN_ALLOW_ALL": true,
+  "CORS_ALLOW_CREDENTIALS": true,
+  "INSTALLED_APPS": [
+    "DjangoAppCenter.simpleui",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "guardian",
+    "rest_framework",
+    "django_filters",
+    "DjangoAppCenter.packages",
+    "DjangoAppCenter.settings"
+  ],
+  "MIDDLEWARE": [
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware"
+  ],
+  "AUTHENTICATION_BACKENDS": [
+    "django.contrib.auth.backends.ModelBackend",
+    "guardian.backends.ObjectPermissionBackend"
+  ],
+  "ROOT_URLCONF": "DjangoAppCenter.settings.urls",
+  "DATABASE_ROUTERS": [],
+  "WSGI_APPLICATION": "DjangoAppCenter.settings.wsgi.application",
+  "DATABASES": {
+    "default": {
+      "ENGINE": "django.db.backends.sqlite3",
+      "NAME": "./DjangoAppCenter/settings/databases/db.sqlite3"
+    }
+  },
+  "LANGUAGE_CODE": "zh-hans",
+  "TIME_ZONE": "Asia/Shanghai",
+  "USE_I18N": true,
+  "USE_L10N": true,
+  "USE_TZ": true,
+  "STATIC_URL": "/static/",
+  "STATIC_ROOT": "statics",
+  "MEDIA_URL": "/media/",
+  "MEDIA_ROOT": "uploads",
+  "ADMIN_SITE_TITLE": "DjangoAppCenter",
+  "ADMIN_SITE_HEADER": "DjangoAppCenter"
+}
