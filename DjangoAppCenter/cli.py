@@ -34,7 +34,7 @@ def prod():
     execute_from_command_line(args)
 
 
-def deploy(use_nginx: bool = False):
+def deploy(reload: bool = True, use_nginx: bool = False):
     """
     run django with uwsgi
     """
@@ -46,13 +46,23 @@ def deploy(use_nginx: bool = False):
     port = custom_settings.get('PORT', 8000)
     os.system("python -m DjangoAppCenter prod collectstatic --noinput")
     if use_nginx:
-        os.system(
-            "uwsgi --py-autoreload=1 --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
-                served_hosts, str(port), wsgi_path, static_root))
+        if reload:
+            os.system(
+                "uwsgi --py-autoreload=1 --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                    served_hosts, str(port), wsgi_path, static_root))
+        else:
+            os.system(
+                "uwsgi --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                    served_hosts, str(port), wsgi_path, static_root))
     else:
-        os.system(
-            "uwsgi --py-autoreload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
-                served_hosts, str(port), wsgi_path, static_root))
+        if reload:
+            os.system(
+                "uwsgi --py-autoreload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                    served_hosts, str(port), wsgi_path, static_root))
+        else:
+            os.system(
+                "uwsgi --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                    served_hosts, str(port), wsgi_path, static_root))
 
 
 def entry():
