@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from DjangoAppCenter.settings import load_settings_from_db
+from DjangoAppCenter.settings import load_settings_from_file
 
-SETTINGS = load_settings_from_db()
+SETTINGS = load_settings_from_file()
 
 urlpatterns = [
-    path('dac/admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
 
 routers = SETTINGS.get('DAC_ROUTERS', [])

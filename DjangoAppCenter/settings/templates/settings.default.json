@@ -1,7 +1,7 @@
 {
   "SERVED_HOSTS": "0.0.0.0",
   "PORT": 8000,
-  "INSTALLED_APPS_": [
+  "INSTALLED_APPS": [
   ],
   "ROUTERS": [],
   "DATABASES": {
@@ -19,7 +19,5 @@
   "STATIC_ROOT": "statics",
   "MEDIA_URL": "/media/",
   "MEDIA_ROOT": "uploads",
-  "LOGS_DIR": "logs",
-  "ADMIN_SITE_TITLE": "DjangoAppCenter",
-  "ADMIN_SITE_HEADER": "DjangoAppCenter"
+  "LOGS_DIR": "logs"
 }

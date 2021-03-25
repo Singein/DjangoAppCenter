@@ -1,6 +1,3 @@
-"""数据库读写分离定义
-"""
-
 from django.conf import settings
 
 apps = getattr(settings, 'INSTALLED_APPS', [])

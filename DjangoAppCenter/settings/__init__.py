@@ -1,5 +1,3 @@
-from DjangoAppCenter.settings.loader import load_settings_from_db, get_default_database
-
 """
 Django settings for demo project.
 
@@ -11,7 +9,10 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+
 import os
+
+from DjangoAppCenter.settings.loader import get_default_database, load_settings_from_file
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,25 +24,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5c91=)d#)!!flh93z@w0go5qk1&ao3@nbe9&t!$$n^e5=_-h8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+dac_environ = os.environ.get("DAC_ENVIRON", "DEV")
+DEBUG = True if dac_environ == "DEV" else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
-
 INSTALLED_APPS = [
-    'DjangoAppCenter.simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'DjangoAppCenter.settings',
-    'DjangoAppCenter.packages',
-    'django_monaco_editor'
+    'DjangoAppCenter.packages'
 ]
 
+# 跨域设置
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
@@ -74,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DjangoAppCenter.settings.wsgi.application'
+WSGI_APPLICATION = 'DjangoAppCenter.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -82,10 +81,10 @@ WSGI_APPLICATION = 'DjangoAppCenter.settings.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.default.sqlite3'),
     }
 }
-
+DATABASE_ROUTERS = ["DjangoAppCenter.settings.dbrouters.Router"],
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -121,6 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "statics"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "uploads"
+ADMIN_SITE_TITLE = "DjangoAppCenter"
+ADMIN_SITE_HEADER = "DjangoAppCenter"
 
 # DjangoAppCenter Settings
 # DAC_ROUTERS = [
@@ -135,7 +139,7 @@ DAC_ENVIRON = "DEBUG"
 DAC_SERVED_HOSTS = "0.0.0.0"
 
 # Global settings overrider
-settings = load_settings_from_db()
+settings = load_settings_from_file()
 settings.get("DATABASES", {}).update(**get_default_database())
 globals()['DATABASES'].update(**get_default_database())
 
