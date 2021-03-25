@@ -1,71 +1,45 @@
 CHANGES
 =======
 
-v0.4.0
+v0.4.1
 ------
 
+* [release] 0.4.1
+* 修改配置
+* 添加新的MonacaEditor字段
+* 添加新的MonacaEditor字段
+* update settings
+* update settings
+* update settings
+* 修复配置文件路径错误
+* feat(cli): 新增nginx下的deploy模式
+* docs(ChangeLog): update changes about [0.4.0]
 * [release] 0.4.0
 * refactor(settings): 修该 packages和models的模型的表名，同时关闭默认的settings数据库配置
 * docs(ChangeLog): update changes about [0.3.12]
-
-v0.3.12
--------
-
 * [release] 0.3.12
 * feat(urls): 移除自动重定向的配置
 * docs(ChangeLog): update changes about [0.3.11]
-
-v0.3.11
--------
-
 * [release] 0.3.11
 * feat(settings): 修改了加载设置的逻辑
 * docs(ChangeLog): update changes about [0.3.10]
-
-v0.3.10
--------
-
 * [release] 0.3.10
 * docs(ChangeLog): update changes about [0.3.9]
-
-v0.3.9
-------
-
 * [release] 0.3.9
 * fix(wsgi): 修改了wsgi的逻辑
 * docs(ChangeLog): update changes about [0.3.8]
-
-v0.3.8
-------
-
 * [release] 0.3.8
 * fix(cli): 修复uwsgi参数错误
 * docs(ChangeLog): update changes about [0.3.7]
-
-v0.3.7
-------
-
 * [release] 0.3.7
 * feat(cli): 新增 py-reload选项
 * docs(ChangeLog): update changes about [0.3.6]
-
-v0.3.6
-------
-
 * [release] 0.3.6
 * feat(log): 移除log默认配置
 * docs(ChangeLog): update changes about [0.3.5]
-
-v0.3.5
-------
-
 * [release] 0.3.5
 * fix(settings): 修复路径参数错误
 * docs(ChangeLog): update changes about [0.3.4]
-
-v0.3.4
-------
-
 * [release] 0.3.4
 * 修改Django的配置加载逻辑
 * sync
@@ -80,10 +54,6 @@ v0.3.4
 * [release] 0.3.2
 * feat(settings): 新增了media相关的配置
 * docs(ChangeLog): update changes about [0.2.4]
-
-v0.2.4
-------
-
 * [release] 0.2.4
 * docs(ChangeLog): update changes about [0.3.1]
 * [release] 0.3.1
