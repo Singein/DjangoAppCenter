@@ -13,7 +13,7 @@ sys.path.append(os.path.abspath(os.getcwd()))
 def dev():
     """run django in debug mode"""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
-    os.environ.setdefault('APP_CENTER_ENVIRON', 'DEV')
+    os.environ.setdefault('DAC_ENVIRON', 'DEV')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -25,7 +25,7 @@ def dev():
 def prod():
     """run django in production mode"""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
-    os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
+    os.environ.setdefault('DAC_ENVIRON', 'PROD')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -38,7 +38,7 @@ def deploy_nginx():
     """
     run django with uwsgi
     """
-    os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
+    os.environ.setdefault('DAC_ENVIRON', 'PROD')
     custom_settings = load_settings_from_db()
     static_root = custom_settings.get('static_root', 'statics')
     wsgi_path = os.path.join(os.path.dirname(
@@ -54,7 +54,7 @@ def deploy():
     """
     run django with uwsgi
     """
-    os.environ.setdefault('APP_CENTER_ENVIRON', 'PROD')
+    os.environ.setdefault('DAC_ENVIRON', 'PROD')
     custom_settings = load_settings_from_db()
     static_root = custom_settings.get('static_root', 'statics')
     wsgi_path = os.path.join(os.path.dirname(

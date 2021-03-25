@@ -38,13 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'DjangoAppCenter.settings',
-    'DjangoAppCenter.packages'
-
+    'DjangoAppCenter.packages',
+    'django_monaco_editor'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -117,7 +121,32 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# DjangoAppCenter Settings
+# DAC_ROUTERS = [
+#     {
+#         "path": "app/",
+#         "urls_module": "app.urls"
+#     }
+# ]
+
+DAC_ENVIRON = "DEBUG"
+
+DAC_SERVED_HOSTS = "0.0.0.0"
+
+# Global settings overrider
 settings = load_settings_from_db()
 settings.get("DATABASES", {}).update(**get_default_database())
 globals()['DATABASES'].update(**get_default_database())
-globals().update(settings)
+
+for key, value in settings.items():
+    if isinstance(value, (list, tuple)):
+        if key.startswith("_"):
+            globals().update(**{key[1:]: value + globals().get(key[1:], [])})
+        elif key.endswith("_"):
+            globals().update(**{key[:-1]: globals().get(key[:-1], []) + value})
+        else:
+            globals().update(**{key: value})
+    else:
+        globals().update(**{key: value})
+globals()

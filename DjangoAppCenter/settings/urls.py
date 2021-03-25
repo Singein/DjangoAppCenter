@@ -15,30 +15,21 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.http import HttpResponse
 from django.urls import include, path
 
 from DjangoAppCenter.settings import load_settings_from_db
-from DjangoAppCenter.signals import restart
 
 SETTINGS = load_settings_from_db()
 
-
-def restart_server(request):
-    restart.RELOAD_SIGNAL.send(sender="xxx")
-    return HttpResponse("")
-
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('admin/restart', restart_server)
+    path('dac/admin/', admin.site.urls),
 ]
 
-routers = SETTINGS.get('routers', [])
+routers = SETTINGS.get('DAC_ROUTERS', [])
 
 # {path: 'app/', model:'app', handler: 'app.api' }
 # 动态导入包
 for router in routers:
     # model = importlib.import_module(router['urls'])
     urlpatterns.append(
-        path(router['path'], include(router['urls'])))
+        path(router['path'], include(router['urls_module'])))
