@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.default.sqlite3'),
     }
 }
-DATABASE_ROUTERS = ["DjangoAppCenter.settings.dbrouters.Router"],
+DATABASE_ROUTERS = ["DjangoAppCenter.settings.dbrouters.Router"]
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
