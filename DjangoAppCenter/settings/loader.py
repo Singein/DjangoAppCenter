@@ -40,12 +40,13 @@ def merge_profile(app: str, options: str):
             profile = json.loads(f.read())
             for key, value in options.items():
                 if isinstance(value, (list, tuple)):
-                    profile.update(**{key: profile.get(key, []) + value})
+                    profile.update(**{key: list(set(profile.get(key, []) + value))})
 
                 elif isinstance(value, dict):
                     if not profile.get(key, None):
                         profile[key] = {}
                     profile[key].update(**value)
+
                 else:
                     profile.update(**{key: value})
 
