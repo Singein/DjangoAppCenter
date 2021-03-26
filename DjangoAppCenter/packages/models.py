@@ -5,6 +5,7 @@ import threading
 from django.db import models
 
 from DjangoAppCenter.extensions.fields.snowflake import SnowFlakeField
+from DjangoAppCenter.settings.loader import merge_profile
 
 logger = logging.getLogger("admin")
 
@@ -24,6 +25,7 @@ class Package(models.Model):
     pip_version = models.CharField(verbose_name="pip version", max_length=255,
                                    choices=(("pip3", "pip3"), ("pip", "pip")),
                                    default="pip")
+    settings = models.TextField(verbose_name="settings for app", blank=True, null=True)
 
     def __str__(self):
         return f"{self.name} v{self.version}"
@@ -34,6 +36,7 @@ class Package(models.Model):
         self.old_version = self.version
         super(Package, self).save()
         logger.info(f"Package {self.name} {self.version} install task finished.")
+        merge_profile(self.app_name, self.settings)
 
     def save(self):
         super().save()
@@ -42,6 +45,7 @@ class Package(models.Model):
             return
 
         if self.version == self.old_version:
+            merge_profile(self.app_name, self.settings)
             return
 
         # install the new version

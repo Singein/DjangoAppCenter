@@ -4,7 +4,7 @@ import sys
 
 import fire
 
-from DjangoAppCenter.settings.loader import init_profile
+from DjangoAppCenter.settings.loader import init_profile, CWD_SETTINGS_PATH
 from DjangoAppCenter.settings.loader import load_settings_from_file
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -69,20 +69,20 @@ def deploy(reload: bool = True, use_nginx: bool = False):
     if use_nginx:
         if reload:
             os.system(
-                "uwsgi --py-autoreload=1 --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
-                    served_hosts, str(port), wsgi_path, static_root))
+                "uwsgi --py-autoreload=1 --touch-reload=%s --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                    CWD_SETTINGS_PATH, served_hosts, str(port), wsgi_path, static_root))
         else:
             os.system(
-                "uwsgi --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                "uwsgi --touch-reload=%s --socket=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
                     served_hosts, str(port), wsgi_path, static_root))
     else:
         if reload:
             os.system(
-                "uwsgi --py-autoreload=1 --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
-                    served_hosts, str(port), wsgi_path, static_root))
+                "uwsgi --py-autoreload=1 --touch-reload=%s --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                    CWD_SETTINGS_PATH, served_hosts, str(port), wsgi_path, static_root))
         else:
             os.system(
-                "uwsgi --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
+                "uwsgi --touch-reload=%s --http=%s:%s --file=%s  --static-map=/static=%s --logto appcenter-wsgi.log" % (
                     served_hosts, str(port), wsgi_path, static_root))
 
 

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 from DjangoAppCenter.settings.loader import get_default_database, load_settings_from_file
+from DjangoAppCenter.settings.log import LOGGING
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'DjangoAppCenter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.default.sqlite3'),
+        'NAME': os.path.join(os.path.abspath(os.getcwd()), 'db.default.sqlite3')
     }
 }
 DATABASE_ROUTERS = ["DjangoAppCenter.settings.dbrouters.Router"]
@@ -139,9 +140,8 @@ DAC_ENVIRON = "DEBUG"
 DAC_SERVED_HOSTS = "0.0.0.0"
 
 # Global settings overrider
-settings = load_settings_from_file()
-settings.get("DATABASES", {}).update(**get_default_database())
 globals()['DATABASES'].update(**get_default_database())
+settings = load_settings_from_file()
 
 for key, value in settings.items():
     if isinstance(value, (list, tuple)):
@@ -151,6 +151,10 @@ for key, value in settings.items():
             globals().update(**{key[:-1]: globals().get(key[:-1], []) + value})
         else:
             globals().update(**{key: value})
+    elif isinstance(value, dict):
+        if not globals().get(key, None):
+            globals()[key] = {}
+        globals()[key].update(**value)
     else:
         globals().update(**{key: value})
 globals()

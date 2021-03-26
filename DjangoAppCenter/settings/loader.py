@@ -1,6 +1,9 @@
 import json
+import logging
 import os
 from shutil import copyfile
+
+logger = logging.getLogger("admin")
 
 BASE_SETTING_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_SETTINGS_PATH = os.path.join(BASE_SETTING_DIR, "templates", "settings.default.json")
@@ -22,6 +25,37 @@ def get_default_database() -> dict:
 def load_settings_from_file() -> dict:
     settings_path = CWD_SETTINGS_PATH if os.path.exists(CWD_SETTINGS_PATH) else DEFAULT_SETTINGS_PATH
     return json.loads(open(settings_path, encoding="utf-8").read())
+
+
+def merge_profile(app: str, options: str):
+    if not options:
+        return
+    try:
+        options = json.loads(options)
+        if not isinstance(options, dict):
+            logger.error(f"App[{app}] 配置文件解析错误 {options}")
+            return
+
+        with open(CWD_SETTINGS_PATH, 'r', encoding="utf-8") as f:
+            profile = json.loads(f.read())
+            for key, value in options.items():
+                if isinstance(value, (list, tuple)):
+                    profile.update(**{key: profile.get(key, []) + value})
+
+                elif isinstance(value, dict):
+                    if not profile.get(key, None):
+                        profile[key] = {}
+                    profile[key].update(**value)
+                else:
+                    profile.update(**{key: value})
+
+        with open(CWD_SETTINGS_PATH, 'w', encoding="utf-8") as f:
+            f.write(json.dumps(profile, ensure_ascii=False, indent=2))
+
+        logger.info(f"App[{app}] settings success injected")
+
+    except json.JSONDecodeError:
+        logger.error(f"App[{app}] 配置文件解析错误 {options}")
 
 
 def init_profile():
