@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.9.5
+------
+
+* [release] 0.9.5
+* 加入list去重
+* docs(ChangeLog): update ChangeLog about version[0.9.4]
+
 v0.9.4
 ------
 
