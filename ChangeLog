@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.9.11
+-------
+
+* [release] 0.9.11
+* 对merge\_profile进行修改
+* docs(ChangeLog): update ChangeLog about version[0.9.9]
+
 v0.9.9
 ------
 
