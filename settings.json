@@ -2,12 +2,21 @@
   "SERVED_HOSTS": "0.0.0.0",
   "PORT": 8000,
   "INSTALLED_APPS_": [
+    "medicine"
   ],
   "ROUTERS": [],
   "DATABASES": {
     "default": {
       "ENGINE": "django.db.backends.sqlite3",
       "NAME": "db.default.sqlite3"
+    },
+    "medicine": {
+      "ENGINE": "django.db.backends.mysql",
+      "NAME": "dw-medicine",
+      "HOST": "192.168.31.187",
+      "PORT": 3306,
+      "PASSWORD": "123456",
+      "USER": "root"
     }
   },
   "LANGUAGE_CODE": "zh-hans",
@@ -21,5 +30,11 @@
   "MEDIA_ROOT": "uploads",
   "LOGS_DIR": "logs",
   "ADMIN_SITE_TITLE": "DjangoAppCenter",
-  "ADMIN_SITE_HEADER": "DjangoAppCenter"
+  "ADMIN_SITE_HEADER": "DjangoAppCenter",
+  "DAC_ROUTERS": [
+    {
+      "path": "medicine",
+      "urls_module": "medicine.urls"
+    }
+  ]
 }
