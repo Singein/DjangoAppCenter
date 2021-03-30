@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.9.8
+------
+
+* [release] 0.9.8
+* 修复导包错误
+* docs(ChangeLog): update ChangeLog about version[0.9.7]
+
 v0.9.7
 ------
 
