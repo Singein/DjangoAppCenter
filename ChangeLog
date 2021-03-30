@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.9.7
+------
+
+* [release] 0.9.7
+* feat(package): 新增collectstatics
+* docs(ChangeLog): update ChangeLog about version[0.9.6]
+
 v0.9.6
 ------
 
