@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v0.9.9
+------
+
+* [release] 0.9.9
+* 移除去重
+* docs(ChangeLog): update ChangeLog about version[0.9.8]
+
 v0.9.8
 ------
 
