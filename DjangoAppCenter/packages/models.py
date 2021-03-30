@@ -6,7 +6,7 @@ from django.db import models
 
 from DjangoAppCenter.extensions.fields.snowflake import SnowFlakeField
 from DjangoAppCenter.settings.loader import merge_profile
-from cli import get_python_version
+from DjangoAppCenter.utils import get_python_version
 
 logger = logging.getLogger("admin")
 
