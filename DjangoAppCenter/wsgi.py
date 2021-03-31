@@ -11,5 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+from DjangoAppCenter.utils import get_python_version
+
+os.system("%s -m DjangoAppCenter prod collectstatic --noinput" % get_python_version())
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAppCenter.settings')
 application = get_wsgi_application()

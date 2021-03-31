@@ -6,7 +6,6 @@ from django.db import models
 
 from DjangoAppCenter.extensions.fields.snowflake import SnowFlakeField
 from DjangoAppCenter.settings.loader import merge_profile
-from DjangoAppCenter.utils import get_python_version
 
 logger = logging.getLogger("admin")
 
@@ -46,7 +45,6 @@ class Package(models.Model):
             return
 
         if self.version == self.old_version:
-            os.system("%s -m DjangoAppCenter prod collectstatic --noinput" % get_python_version())
             merge_profile(self.app_name, self.settings)
             return
 
