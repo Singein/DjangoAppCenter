@@ -1,6 +1,14 @@
 CHANGES
 =======
 
+v0.9.13
+-------
+
+* [release] 0.9.13
+* 修改代码
+* 修改wsgi
+* docs(ChangeLog): update ChangeLog about version[0.9.12]
+
 v0.9.12
 -------
 
