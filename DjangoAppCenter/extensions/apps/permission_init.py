@@ -22,11 +22,11 @@ class PermissionInitMixin:
             return
 
         for key, value in app_models.__dict__.items():
-            nonlocal app_models
+
             if not isinstance(value, type):
                 continue
 
-            elif issubclass(value, [eval("app_models.%s" % m) for m in self.base_orm_models]):
+            elif issubclass(value, tuple([app_models.__dict__[m] for m in self.base_orm_models])):
                 if hasattr(value, "_meta") and value._meta.abstract is True:
                     continue
                 if not ContentType.objects.filter(app_label=self.name).filter(model=key.lower()).exists():
