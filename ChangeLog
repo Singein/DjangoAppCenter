@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* 修改init\_permissions
 * 修改类名
 * docs(ChangeLog): update ChangeLog about version[0.9.14]
 

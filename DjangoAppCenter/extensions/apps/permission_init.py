@@ -22,6 +22,7 @@ class PermissionInitMixin:
             return
 
         for key, value in app_models.__dict__.items():
+            nonlocal app_models
             if not isinstance(value, type):
                 continue
 
