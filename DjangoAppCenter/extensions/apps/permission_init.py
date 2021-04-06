@@ -5,8 +5,8 @@ logger = logging.getLogger("PermissionInit")
 
 
 class PermissionInitMixin:
-    models_path: str = ""
-    base_orm_models: tuple[str] = ("models.Model",)
+    models_path = ""
+    base_orm_models = ("models.Model",)
 
     def ready(self):
         self.init_permissions()
