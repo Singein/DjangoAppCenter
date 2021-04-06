@@ -1,14 +1,12 @@
 import logging
 from importlib import import_module
 
-from django.db import models
-
 logger = logging.getLogger("PermissionInit")
 
 
-class PermissionInit:
-    models_path = ""
-    base_orm_models = (models.Model,)
+class PermissionInitMixin:
+    models_path: str = ""
+    base_orm_models: tuple[str] = ("models.Model",)
 
     def ready(self):
         self.init_permissions()
@@ -27,7 +25,7 @@ class PermissionInit:
             if not isinstance(value, type):
                 continue
 
-            elif issubclass(value, self.base_orm_models):
+            elif issubclass(value, [eval(m) for m in self.base_orm_models]):
                 if hasattr(value, "_meta") and value._meta.abstract is True:
                     continue
                 if not ContentType.objects.filter(app_label=self.name).filter(model=key.lower()).exists():
