@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+v0.9.16
+-------
+
+* [release] 0.9.16
+* 彻底修复init\_permissions
 * 修改init\_permissions中app\_models的作用域
 * 修改init\_permissions
 * 修改类名
