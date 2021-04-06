@@ -1,5 +1,6 @@
-from django.conf import settings
+from DjangoAppCenter.settings.loader import load_settings_from_file
 
+settings = load_settings_from_file()
 MACHINE_ID = getattr(settings, "SNOWFLAKE_MACHINE_ID", 1)  # 机器ID
 DATA_CENTER_ID = getattr(settings, "SNOWFLAKE_DATA_CENTER_ID", 1)  # 数据中心ID
 SEQUENCE = getattr(settings, "SNOWFLAKE_SEQUENCE", 14)  # 从哪个整数开始计数
