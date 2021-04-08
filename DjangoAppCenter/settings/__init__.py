@@ -157,4 +157,3 @@ for key, value in settings.items():
         globals()[key].update(**value)
     else:
         globals().update(**{key: value})
-globals()
