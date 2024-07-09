@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from DjangoAppCenter.settings.loader import get_default_database, load_settings_from_file
 from DjangoAppCenter.settings.log import LOGGING
+from DjangoAppCenter.settings.storage import django_app_center_settings_storage
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,13 +32,15 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'DjangoAppCenter.packages'
+    'DjangoAppCenter.packages',
+    'DjangoAppCenter.settings',
 ]
 
 # 跨域设置
@@ -82,7 +84,7 @@ WSGI_APPLICATION = 'DjangoAppCenter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.path.abspath(os.getcwd()), 'db.default.sqlite3')
+        'NAME': os.path.join(os.path.abspath(os.getcwd()), 'DjangoAppCenter.sqlite3')
     }
 }
 DATABASE_ROUTERS = ["DjangoAppCenter.settings.dbrouters.Router"]
@@ -126,22 +128,9 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = "uploads"
 ADMIN_SITE_TITLE = "DjangoAppCenter"
 ADMIN_SITE_HEADER = "DjangoAppCenter"
-
-# DjangoAppCenter Settings
-# DAC_ROUTERS = [
-#     {
-#         "path": "app/",
-#         "urls_module": "app.urls"
-#     }
-# ]
-
-DAC_ENVIRON = "DEBUG"
-
 DAC_SERVED_HOSTS = "0.0.0.0"
 
-# Global settings overrider
-globals()['DATABASES'].update(**get_default_database())
-settings = load_settings_from_file()
+settings = django_app_center_settings_storage.load()
 
 for key, value in settings.items():
     if isinstance(value, (list, tuple)):

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/appcenter.iml" filepath="$PROJECT_DIR$/.idea/appcenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DjangoAppCenter.iml" filepath="$PROJECT_DIR$/.idea/DjangoAppCenter.iml" />
     </modules>
   </component>
 </project>

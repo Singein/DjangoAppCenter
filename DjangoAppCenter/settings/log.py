@@ -1,9 +1,8 @@
 import os
 
-from DjangoAppCenter.settings import load_settings_from_file
+from DjangoAppCenter.settings.storage import django_app_center_settings
 
-settings = load_settings_from_file()
-logs_dir = settings.get("LOGS_DIR", "logs")
+logs_dir = django_app_center_settings.get("LOGS_DIR", "logs")
 if not os.path.exists(logs_dir):
     os.mkdir(logs_dir)
 

@@ -15,17 +15,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import include, path
 
-from DjangoAppCenter.settings import load_settings_from_file
-
-SETTINGS = load_settings_from_file()
+from DjangoAppCenter.settings.storage import django_app_center_settings
 
 urlpatterns = [
+    path('', lambda request: redirect('admin/')),
     path('admin/', admin.site.urls),
+    # redirect to homepage ap
 ]
 
-routers = SETTINGS.get('DAC_ROUTERS', [])
+routers = django_app_center_settings.get('ROUTERS', [])
 
 # {path: 'app/', model:'app', handler: 'app.api' }
 # 动态导入包

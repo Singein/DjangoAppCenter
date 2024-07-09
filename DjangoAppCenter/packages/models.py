@@ -4,28 +4,39 @@ import threading
 
 from django.db import models
 
-from DjangoAppCenter.extensions.fields.snowflake import SnowFlakeField
-from DjangoAppCenter.settings.loader import merge_profile
+from DjangoAppCenter.settings.models import NameSpace
 
 logger = logging.getLogger("admin")
 
 
 # Create your models here.
 
+class PackageRepository(models.Model):
+    name = models.CharField(verbose_name="repository name", max_length=255)
+    url = models.CharField(verbose_name="repository url", max_length=255)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = "package_repository"
+
+
 class Package(models.Model):
-    id = SnowFlakeField(primary_key=True)
     name = models.CharField(verbose_name="package name", max_length=255)
     app_name = models.CharField(verbose_name="app name", max_length=255)
-    repository = models.CharField(verbose_name="repository", max_length=255, default="https://pypi.org/simple")
+    repository = models.ForeignKey(to=PackageRepository, verbose_name="repository", max_length=255,
+                                   on_delete=models.CASCADE)
     enable = models.BooleanField(verbose_name="enable", default=True)
     version = models.CharField(verbose_name="version", max_length=255, default="0.0.1")
     old_version = models.CharField(verbose_name="old_version", max_length=255, default="0.0.1", editable=False)
-    is_app = models.BooleanField(help_text="register the package as an django app", default=False)
-    installing = models.BooleanField(default=False)
+    register_as_django_app = models.BooleanField(help_text="register the package as an django app", default=False)
+    installing = models.BooleanField(default=False, editable=False, verbose_name="installing")
     pip_version = models.CharField(verbose_name="pip version", max_length=255,
                                    choices=(("pip3", "pip3"), ("pip", "pip")),
                                    default="pip")
-    settings = models.TextField(verbose_name="settings for app", blank=True, null=True)
+    setting_namespace = models.ForeignKey(to=NameSpace, verbose_name="settings namespace for app", blank=True,
+                                          null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.name} v{self.version}"
@@ -36,7 +47,6 @@ class Package(models.Model):
         self.old_version = self.version
         super(Package, self).save()
         logger.info(f"Package {self.name} {self.version} install task finished.")
-        merge_profile(self.app_name, self.settings)
 
     def save(self):
         super().save()
@@ -45,7 +55,6 @@ class Package(models.Model):
             return
 
         if self.version == self.old_version:
-            merge_profile(self.app_name, self.settings)
             return
 
         # install the new version
@@ -57,4 +66,4 @@ class Package(models.Model):
         task.start()
 
     class Meta:
-        db_table = "dac_packages"
+        db_table = "package"

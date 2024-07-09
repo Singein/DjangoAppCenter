@@ -4,9 +4,11 @@ apps = getattr(settings, 'INSTALLED_APPS', [])
 
 
 class Router:
+    apps = getattr(settings, 'INSTALLED_APPS', [])
+
     def db_for_read(self, model, **hints):
         app_label = model._meta.app_label
-        if app_label in apps:
+        if app_label in self.apps:
             return app_label
         return 'default'
 
