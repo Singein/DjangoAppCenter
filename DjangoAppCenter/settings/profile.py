@@ -2,18 +2,19 @@ import json
 import logging
 import os
 
+from settings.loader import CWD_SETTINGS_PATH
+
 logger = logging.getLogger("admin")
 
 
-class SettingsLoaderError(Exception):
-    pass
+
 
 
 class SettingsLoader:
 
     def __init__(self, path: str):
         if not os.path.exists(path):
-            raise SettingsLoaderError("Profile path not found")
+            raise BaseException("Profile path not found")
 
         self.settings_path = path
 
@@ -21,7 +22,7 @@ class SettingsLoader:
         try:
             return json.loads(open(self.settings_path, encoding="utf-8").read())
         except json.JSONDecodeError:
-            raise SettingsLoaderError("Json decode failed.") from json.JSONDecodeError
+            raise BaseException("Json decode failed.") from json.JSONDecodeError
 
     def merge(self, app: str, options: str):
         if not options:

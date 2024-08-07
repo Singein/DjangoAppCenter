@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'DjangoAppCenter.packages'
+    'DjangoAppCenter.applications'
 ]
 
 # 跨域设置

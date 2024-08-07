@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from DjangoAppCenter.packages.models import Package
+from DjangoAppCenter.applications.models import Package
 from DjangoAppCenter.settings import load_settings_from_file
 
 # Register your models here.

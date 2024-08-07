@@ -1,4 +1,4 @@
 django-cors-headers==3.3.0
-django==3.0.2
-django-filter==2.2.0
+django
+django-filter
 fire
